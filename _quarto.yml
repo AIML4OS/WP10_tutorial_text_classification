@@ -21,7 +21,7 @@ website:
         text: Data augmentation
       - href: model_training/fine-tuning-bert-example.ipynb
         text: Transformers for text classification
-      - href: model_training/zero-shot-classfication-with-RAG.ipynb
+      - href: model_training/zero-shot-classification-with-RAG.ipynb
         text: Zero shot classification with RAG
 
 format:
