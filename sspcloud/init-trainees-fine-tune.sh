@@ -2,6 +2,7 @@
 
 WORK_DIR="/home/onyxia/work"
 GITHUB_REPOSITORY="https://github.com/yulinhuang/WP10_tutorial_text_classification.git"
+GITHUB_BRANCH="merge-template"
 NOTEBOOK_DOWNLOAD_URL="https://yulinhuang.github.io/WP10_tutorial_text_classification/notebooks/model_training/fine-tuning-bert-example.out.ipynb"
 BUCKET_PATH="s3/yulinhuang/tutorial/bert/"
 DEST_DIR="$HOME/work/models/localsave/bert"
@@ -10,7 +11,7 @@ DEST_FILE="$DEST_DIR/$(basename "$BUCKET_PATH")"
 
 # Download the pyproject.toml directly using git
 echo $GITHUB_REPOSITORY
-git clone --depth 1 $GITHUB_REPOSITORY temp
+git clone --depth 1 --branch $GITHUB_BRANCH $GITHUB_REPOSITORY temp
 
 # Install dependencies in system env
 uv pip install -r temp/requirements.txt --system
