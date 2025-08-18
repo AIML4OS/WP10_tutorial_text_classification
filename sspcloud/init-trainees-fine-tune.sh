@@ -14,6 +14,8 @@ git clone --depth 1 $GITHUB_REPOSITORY temp
 
 # Install dependencies in system env
 uv pip install -r temp/requirements.txt --system
+mkrid -p data/raw
+uv run python temp/sspcloud/data_ingestion.py
 rm -rf temp
 
 # Download the dataset
