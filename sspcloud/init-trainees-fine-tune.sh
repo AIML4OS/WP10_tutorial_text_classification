@@ -14,7 +14,7 @@ echo $GITHUB_REPOSITORY
 git clone --depth 1 --branch $GITHUB_BRANCH $GITHUB_REPOSITORY temp
 
 # Install dependencies in system env
-uv pip install -r temp/requirements.txt --system
+uv pip install -r temp/pyproject.toml --system
 mkdir -p data/raw
 uv run python temp/sspcloud/data_ingestion.py
 rm -rf temp
