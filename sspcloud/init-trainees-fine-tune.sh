@@ -3,8 +3,8 @@
 WORK_DIR="/home/onyxia/work"
 GITHUB_REPOSITORY="https://github.com/yulinhuang/WP10_tutorial_text_classification.git"
 NOTEBOOK_DOWNLOAD_URL="https://yulinhuang.github.io/WP10_tutorial_text_classification/notebooks/model_training/fine-tuning-bert-example.out.ipynb"
-BUCKET_PATH="s3/donnees-insee/diffusion/ETAT_CIVIL/2020/DECES_COM_1019.csv"
-DEST_DIR="$HOME/work/data"
+BUCKET_PATH="s3/yulinhuang/tutorial/bert/"
+DEST_DIR="$HOME/work/models/localsave/bert"
 DEST_FILE="$DEST_DIR/$(basename "$BUCKET_PATH")"
 
 
@@ -14,13 +14,14 @@ git clone --depth 1 $GITHUB_REPOSITORY temp
 
 # Install dependencies in system env
 uv pip install -r temp/requirements.txt --system
-mkrid -p data/raw
+mkdir -p data/raw
 uv run python temp/sspcloud/data_ingestion.py
 rm -rf temp
 
 # Download the dataset
-# echo "Downloading $BUCKET_PATH to $DEST_FILE..."
-# mc cp "$BUCKET_PATH" "$DEST_DIR"
+echo "Downloading $BUCKET_PATH to $DEST_FILE..."
+mkdir -p $DEST_DIR
+mc cp -r "$BUCKET_PATH" "$DEST_DIR"
 
 # Download the notebook directly using curl
 echo $NOTEBOOK_DOWNLOAD_URL
