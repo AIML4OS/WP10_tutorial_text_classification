@@ -3,6 +3,7 @@ project:
   render:
     - index.qmd
     - chapters/chapter1.qmd
+    - chapters/fine-tune.qmd
 
 website:
   page-navigation: true
@@ -17,6 +18,8 @@ website:
         text: Introduction
       - href: chapters/chapter1.qmd
         text: A complete example
+      - href: chapters/fine-tune.qmd
+        text: Transformers for text classification
 
 format:
   html:
