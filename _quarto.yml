@@ -2,7 +2,7 @@ project:
   type: website
   render:
     - index.qmd
-    - chapters/chapter1.qmd
+    - data_preprocessing/data_augmentation.ipynb
     - chapters/fine-tune.qmd
 
 website:
@@ -16,8 +16,8 @@ website:
     contents:
       - href: index.qmd
         text: Introduction
-      - href: chapters/chapter1.qmd
-        text: A complete example
+      - href: data_preprocessing/data_augmentation.ipynb
+        text: Data augmentation
       - href: chapters/fine-tune.qmd
         text: Transformers for text classification
 
