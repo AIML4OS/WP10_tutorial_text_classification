@@ -3,7 +3,8 @@ name: Build the website
 on:
   push:
     branches:
-      - main   # Triggers workflow on push to the main branch
+      # - main   # Triggers workflow on push to the main branch
+      - merge-template
   workflow_dispatch:
 
 jobs:
