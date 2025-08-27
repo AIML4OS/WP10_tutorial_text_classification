@@ -2,21 +2,27 @@ project:
   type: website
   render:
     - index.qmd
-    - chapters/chapter1.qmd
+    - data_preprocessing/data_augmentation.ipynb
+    - model_training/fine-tuning-bert-example.ipynb
+    - model_training/zero-shot-classification-with-RAG.ipynb
 
 website:
   page-navigation: true
   title: "Educational resource template for Python"
-  site-url: "https://github.com/InseeFrLab/AIML4OS-template-quarto-python"
-  repo-url: "https://github.com/InseeFrLab/AIML4OS-template-quarto-python"
+  site-url: "https://github.com/yulinhuang/WP10_tutorial_text_classification"
+  repo-url: "https://github.com/yulinhuang/WP10_tutorial_text_classification"
   repo-actions: [edit, source, issue]
   sidebar:
     search: true
     contents:
       - href: index.qmd
         text: Introduction
-      - href: chapters/chapter1.qmd
-        text: A complete example
+      - href: data_preprocessing/data_augmentation.ipynb
+        text: Data augmentation
+      - href: model_training/fine-tuning-bert-example.ipynb
+        text: Transformers for text classification
+      - href: model_training/zero-shot-classification-with-RAG.ipynb
+        text: Zero shot classification with RAG
 
 format:
   html:

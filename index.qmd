@@ -1,17 +1,31 @@
 ---
-title: "Template for WP6 training material" # See below for multilingual resource
+title: "Tutorial for WP10 text classifiction" # See below for multilingual resource
 include-before-body:
   - text: <img src="resources/cover/main2.png" style="max-width:900px;width:100%"><br>
 author:
-  - name: Public Statistician 1
-    url: https://github.com/publicstatistician1
-    email: Public.Statistician1@statistics.org
-  - name: Public Statistician 2
-    url: https://github.com/publicstatistician2
-    email: Public.Statistician2@statistics.org
-date: "2025-05-16"
-doi: "10.1000/182"  # Optional
-license: "CC-BY 4.0"  # Optional
+  - name: Claude Lamboray
+    url: https://github.com/clambora
+    email: claude.lamboray@statec.etat.lu
+  - name: Mauro Bruno
+    url: https://github.com/mauroIstat
+    email: mbruno@istat.it
+  - name: Francesco Ortame
+    url: https://github.com/liminalfever
+    email: francesco.ortame@istat.it
+  - name: Carlos Sáez Calvo
+    url: https://github.com/ine-metodologia
+    email: carlos.saez.calvo@ine.es
+  - name: ADRIAN PEREZ BOTE
+    url: https://github.com/ine-metodologia
+    email: adrian.perez.bote@ine.es
+  - name: Yu-Lin Huang
+    url: https://github.com/yulinhuang
+    email: yu-lin.huang@ext.statec.etat.lu
+
+
+date: "2025-08-18"
+# doi: "10.1000/182"  # Optional
+license: "CC0 1.0 Universal"  # Optional
 
 # If resources is multilingual, adopt that structure
 # (need to have both title and title-* fields)
