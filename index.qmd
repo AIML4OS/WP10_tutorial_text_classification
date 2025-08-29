@@ -118,7 +118,7 @@ The tutorial consists of three parts. Each part is a self-contained notebook. Th
 
 In practice, training data sets that include statistical classification codes are often imbalanced, with certain categories significantly underrepresented. Therefore, some categories do not have enough data for the model to properly learn. One approach for mitigating this issue is data augmentation. In this context, we explore how LLMs together with the official explanatory notes of the classification can be leveraged to generate synthetic data points. 
 
-![](images/Part1-pricture.png)
+![](images/Part1-picture.png)
 
 ## Part 2: Fine-tuning a transformer pipeline for text classification
 
