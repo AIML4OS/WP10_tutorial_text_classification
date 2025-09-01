@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/yulinhuang/WP10_tutorial_text_classification/5_RAG/rag_classification.html</loc>
-    <lastmod>2025-09-01T13:10:43.261Z</lastmod>
+    <loc>https://github.com/AIML4OS/WP10_tutorial_text_classification/5_RAG/rag_classification.html</loc>
+    <lastmod>2025-09-01T13:20:36.439Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/yulinhuang/WP10_tutorial_text_classification/data_preprocessing/data_augmentation.html</loc>
-    <lastmod>2025-09-01T13:10:43.271Z</lastmod>
+    <loc>https://github.com/AIML4OS/WP10_tutorial_text_classification/data_preprocessing/data_augmentation.html</loc>
+    <lastmod>2025-09-01T13:20:36.448Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/yulinhuang/WP10_tutorial_text_classification/index.html</loc>
-    <lastmod>2025-09-01T13:10:43.290Z</lastmod>
+    <loc>https://github.com/AIML4OS/WP10_tutorial_text_classification/index.html</loc>
+    <lastmod>2025-09-01T13:20:36.467Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/yulinhuang/WP10_tutorial_text_classification/model_training/fine-tuning-bert-example.html</loc>
-    <lastmod>2025-09-01T13:10:43.290Z</lastmod>
+    <loc>https://github.com/AIML4OS/WP10_tutorial_text_classification/model_training/fine-tuning-bert-example.html</loc>
+    <lastmod>2025-09-01T13:20:36.467Z</lastmod>
   </url>
 </urlset>
