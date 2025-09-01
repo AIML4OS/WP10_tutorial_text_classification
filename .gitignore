@@ -56,3 +56,6 @@ rsconnect/
 # python cache
 .ipynb_checkpoints
 __pycache__
+
+# quarto metadata
+metadata.json
