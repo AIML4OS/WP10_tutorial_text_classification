@@ -1,0 +1,147 @@
+---
+title: "Tutorial for WP10 text classifiction" # See below for multilingual resource
+include-before-body:
+  - text: <img src="resources/cover/main2.png" style="max-width:900px;width:100%"><br>
+author:
+  - name: Claude Lamboray
+    url: https://github.com/clambora
+    email: claude.lamboray@statec.etat.lu
+  - name: Mauro Bruno
+    url: https://github.com/mauroIstat
+    email: mbruno@istat.it
+  - name: Francesco Ortame
+    url: https://github.com/liminalfever
+    email: francesco.ortame@istat.it
+  - name: Carlos Sáez Calvo
+    url: https://github.com/ine-metodologia
+    email: carlos.saez.calvo@ine.es
+  - name: ADRIAN PEREZ BOTE
+    url: https://github.com/ine-metodologia
+    email: adrian.perez.bote@ine.es
+  - name: Yu-Lin Huang
+    url: https://github.com/yulinhuang
+    email: yu-lin.huang@ext.statec.etat.lu
+
+
+date: "2025-08-18"
+# doi: "10.1000/182"  # Optional
+license: "CC0 1.0 Universal"  # Optional
+
+# If resources is multilingual, adopt that structure
+# (need to have both title and title-* fields)
+# title: "Hello SSPCloud"
+# title-en: "Hello SSPCloud"
+# title-fr: "Bonjour SSPCloud"
+
+description: |
+    This template is a fast starting pack for AIML4OS projects that use `R`. For `Python` projects, see [this `Github` repository](https://github.com/InseeFrLab/AIML4OS-template-quarto-python).
+
+# If resources is multilingual, adopt that structure
+# (need to have both description and description-* fields)
+
+# description: |
+  # Resource summaries are embedded as metadata for use in training portals and for sharing on social media.
+# description-multilingual:
+  # en: |
+  #   Resource summaries are embedded as metadata for use in training portals and for sharing on social media.
+  # fr: |
+  #   Les résumés des ressources sont intégrés sous forme de métadonnées, utiles pour les portails de formation ou le partage sur les réseaux sociaux.
+
+tags:
+  - Starter Pack
+  - SSPCloud Documentation
+
+image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY-OenRMvFyZUfDm_snUCxpV4SyaHvUeqObA&s"
+
+# You can also add any valid Quarto option:
+# HTML: https://quarto.org/docs/reference/formats/html.html
+# PDF: https://quarto.org/docs/reference/formats/pdf.html
+# ...
+
+# Custom metadata for training portals -------------------------------------
+
+duration: "90"  # Duration in minutes
+
+skills:
+  - Git Basics
+  - Quarto Authoring
+  - Reproducible Research
+  - Using SSPCloud
+
+courseMaterial:
+  - R Scripts
+  # - Videos
+  # - Jupyter Notebooks
+
+publicLevel:
+  - Beginner
+  - Intermediate
+  # - Expert
+
+resourceLanguage:
+  - R
+  # - Python
+
+suggestedBefore:
+  - https://quarto.org/
+  - https://juba.github.io/tidyverse/
+
+deploymentURL:
+  - rstudio:
+      - "https://datalab.sspcloud.fr/launcher/ide/rstudio-sparkr?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fformation-bceao%2Fmain%2Ftp%2Finit-tp.sh%C2%BB&resources.limits.memory=%C2%AB100Gi%C2%BB&persistence.size=%C2%AB40Gi%C2%BB&init.personalInitArgs=%C2%ABen%C2%BB"
+  - jupyter:
+      - "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?name=jupyter-python&shared=false&version=1.13.44&autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen%2Fmanipulation%2001_numpy%C2%BB"
+  - vscode:
+      - en: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB03_geopandas_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2003_geopandas_intro%C2%BB&security.allowlist.enabled=false"
+      - fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB03_geopandas_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2003_geopandas_intro%C2%BB&security.allowlist.enabled=false"
+
+suggestedRequirements:
+  - "https://quarto.org/"
+  - "https://scikit-learn.org/stable/"
+
+# Optional: Statistical process classification
+gsbpm: "5.1" # See complete taxonomy: https://www.unescap.org/sites/default/d8files/event-documents/GSBPM_v5.1_R_for_SBP_8-18Apr2024.pdf
+---
+
+
+# What is this tutorial about ?
+
+
+Official statistics typically use standardized classifications like NACE, ISCO, or COICOP to organize data. Assigning codes to text descriptions is known as the text-to-code problem. For example, we map the answer “I work as a software developer” provided by a respondent  to the ISCO category 21 Science and Engineering Professionals.  
+
+Manual coding is slow and labor-intensive, but transformer models can help to make this process more efficient. This tutorials shows how these models can automate to some extent this classification task.
+
+The tutorial consists of three parts. Each part is a self-contained notebook. The notebooks can  be executed for example on the SSP cloud datalab - a platform built on Onyxia, an open-source web application developed by INSEE. This environment provides data scientists with a modern, cloud-based workspace.  
+
+
+## Part 1: Synthetic data generation to improve the training data set
+
+In practice, training data sets that include statistical classification codes are often imbalanced, with certain categories significantly underrepresented. Therefore, some categories do not have enough data for the model to properly learn. One approach for mitigating this issue is data augmentation. In this context, we explore how LLMs together with the official explanatory notes of the classification can be leveraged to generate synthetic data points. 
+
+![](images/Part1-picture.png)
+
+## Part 2: Fine-tuning a transformer pipeline for text classification
+
+In this part, we will learn how to fine-tune transformer models from Hugging Face for text classification tasks. Using pre-labeled datasets, we will demonstrate how to fine-tune a pretrained model and evaluate its performance on a test set. We illustrate the pipeline on an open data set that links company descriptions with corresponding NACE codes.
+
+![](images/Part2-picture.png)
+
+
+## Part 3: Setting up a simple RAG pipeline for automatic text classification
+
+We will explore an alternative approach to text classification using a simple Retrieval-Augmented Generation (RAG) pipeline. We
+will	construct a knowledge base using official NACE category descriptions. Applying semantic search, we then select the k-closest classes for a given user query. Finally we will use an LLM to generate classification predictions.
+
+![](images/Part3-picture.png)
+
+# What is this template?
+
+This template is a Quarto Website customized for the AIML4OS project, designed to be used with {{< fa brands r-project >}}.
+
+# How to use it?
+
+See [this tutorial](https://inseefrlab.github.io/formation-starting-pack/).
+
+
+
+
