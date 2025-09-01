@@ -1,0 +1,36 @@
+project:
+  type: website
+  render:
+    - index.qmd
+    - data_preprocessing/data_augmentation.ipynb
+    - model_training/fine-tuning-bert-example.ipynb
+    - 5_RAG/rag_classification.ipynb
+
+website:
+  page-navigation: true
+  title: "Educational resource template for Python"
+  site-url: "https://github.com/yulinhuang/WP10_tutorial_text_classification"
+  repo-url: "https://github.com/yulinhuang/WP10_tutorial_text_classification"
+  repo-actions: [edit, source, issue]
+  sidebar:
+    search: true
+    contents:
+      - href: index.qmd
+        text: Introduction
+      - href: data_preprocessing/data_augmentation.ipynb
+        text: Data augmentation
+      - href: model_training/fine-tuning-bert-example.ipynb
+        text: Transformers for text classification
+      - href: 5_RAG/rag_classification.ipynb
+        text: RAG Classification
+
+format:
+  html:
+    theme:
+      - cosmo
+    css: styles.css
+    toc: true
+
+filters:
+  - export-metadata.lua
+

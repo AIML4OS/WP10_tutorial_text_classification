@@ -1,0 +1,505 @@
+---
+title: BERT base multilingual Fine-Tuning
+format:
+  html:
+    code-fold: true
+execute: 
+  eval: false
+---
+
+```{python}
+cd ..
+```
+
+This notebook explores fine-tuning BERT base for text classification.
+
+
+# Fine-Tuning a Transformers Model Guide
+
+In this tutorial, we’ll build a text classifier by fine-tuning a pretrained BERT model from Hugging Face’s Transformers library.
+We’ll start from a very practical point: you already have a labeled dataset stored in a CSV file, where each row contains a piece of text and its corresponding label.
+By the end, you’ll know how to:
+
+1. Load a CSV dataset and convert it into the Hugging Face Datasets format
+
+2. Load a pretrained model and tokenizer from the Hugging Face Hub
+
+3. Tokenize text using the model’s tokenizer
+
+4. Fine-tune the model with the Transformers Trainer API
+
+5. Save model in local path 
+
+6. Evaluate the model and run predictions on new text with transformers pipeline
+
+# Dependancy management
+
+Here we import all dependancies that we will need to use
+
+```{python}
+import numpy as np
+import pandas as pd
+import torch
+from transformers import (
+    AutoTokenizer,
+    AutoModelForSequenceClassification,
+    Trainer,
+    TrainingArguments,
+    DataCollatorWithPadding,
+    pipeline,
+    set_seed
+)
+from datasets import load_dataset
+from datasets import Dataset, ClassLabel, DatasetDict
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, top_k_accuracy_score
+from sklearn.preprocessing import LabelEncoder
+import random
+```
+
+# Configuration variables
+
+Here, we can set some parameters with arbitrary value for importing and training.
+
+---
+
+## **Model Settings**
+| Parameter | Type | Example Value | Description |
+|-----------|------|---------------|-------------|
+| `model_id` | `str` | `'bert-base-multilingual-uncased'` | The Hugging Face model ID to load from the hub. Here, a multilingual BERT model is used for supporting multiple languages. |
+| `max_seq_len` | `int` | `256` | The maximum number of tokens in an input sequence. Longer sequences will be truncated. |
+
+---
+
+## **Output Settings**
+| Parameter | Type | Example Value | Description |
+|-----------|------|---------------|-------------|
+| `output_dir` | `str` | `'saved_models/bert-base-multilingual-uncased'` | Directory where the trained model, tokenizer, and training logs will be saved. |
+
+---
+
+## **Training Hyperparameters**
+| Parameter | Type | Example Value | Description |
+|-----------|------|---------------|-------------|
+| `epochs` | `int` | `4` | Number of training epochs. One epoch means going through the full dataset once. |
+| `learn_rate` | `float` | `5e-5` | Initial learning rate for the optimizer (AdamW by default). |
+| `scheduler` | `str` | `'linear'` | Learning rate scheduler type. `'linear'` gradually decreases the LR after a warmup period. |
+| `train_bs` | `int` | `16` | Batch size for training steps. |
+| `eval_bs` | `int` | `32` | Batch size for evaluation steps. |
+| `ga_steps` | `int` | `2` | Gradient accumulation steps. Allows you to simulate a larger batch size without increasing GPU memory usage. |
+| `decay` | `float` | `0.01` | Weight decay to prevent overfitting by penalizing large weights. |
+| `warmup` | `float` | `0.1` | Fraction of total training steps used for learning rate warmup. |
+
+---
+
+## **Evaluation & Logging**
+| Parameter | Type | Example Value | Description |
+|-----------|------|---------------|-------------|
+| `eval_strategy` | `str` | `'epoch'` | When to run evaluation. `'epoch'` means after each epoch. |
+| `logging_strategy` | `str` | `'epoch'` | When to log metrics. `'epoch'` means at the end of each epoch. |
+| `save_strategy` | `str` | `'no'` | When to save model checkpoints. `'no'` means only final save at the end of training. |
+| `log_level` | `str` | `'warning'` | Logging verbosity. Options include `'debug'`, `'info'`, `'warning'`, `'error'`. |
+| `report_to` | `list` | `[]` | List of reporting integrations (`"wandb"`, `"tensorboard"`, etc.). Empty means no external reporting. |
+| `# log_steps` | `int` | *(commented out)* | If enabled, logs training metrics every `log_steps` steps. |
+
+---
+
+## **Precision & Model Loading**
+| Parameter | Type | Example Value | Description |
+|-----------|------|---------------|-------------|
+| `fp16` | `bool` | `False` | Whether to use 16-bit floating-point precision (mixed precision) for faster and memory-efficient training. |
+| `load_best` | `bool` | `False` | Whether to load the best checkpoint after training based on evaluation metrics. |
+
+---
+
+### **Notes**
+- **Gradient Accumulation (`ga_steps`)**: With `train_bs = 16` and `ga_steps = 2`, the *effective batch size* is `16 * 2 = 32`.
+- **Warmup (`warmup`)**: If you have 1000 total steps, `warmup=0.1` means the first 100 steps will gradually ramp up the learning rate.
+- **Mixed Precision (`fp16`)**: Useful on GPUs with Tensor Cores (e.g., NVIDIA RTX series) to speed up training and reduce memory usage.
+
+---
+
+```{python}
+model_id        : str   = f'bert-base-multilingual-uncased'
+max_seq_len     : int   = 256
+
+output_dir      : str   = f'saved_models/{model_id}'
+epochs          : int   = 4
+learn_rate      : float = 5e-5
+scheduler       : str   = 'linear'
+train_bs        : int   = 16
+eval_bs         : int   = 32
+ga_steps        : int   = 2
+decay           : float = 0.01
+warmup          : float = 0.1
+# log_steps     : int   = 10
+eval_strategy   : str   = 'epoch'
+logging_strategy: str   = 'epoch'
+save_strategy   : str   = 'no'
+fp16            : bool  = False
+load_best       : bool  = False
+report_to       : list  = []
+log_level       : str   = 'warning'
+
+SEED            : int   = 42
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+```
+
+```{python}
+set_seed(SEED)
+```
+
+# 1. Load a CSV dataset and convert it into the Hugging Face Datasets format
+
+## What is happenning in this section
+
+**Convert DataFrame to Hugging Face Dataset**  
+Transforming a Pandas DataFrame into a Hugging Face `Dataset` makes it directly compatible with the `Trainer` API. This enables efficient tokenization, easy dataset splitting, and optimized batch processing.
+
+**Convert string labels to integers using LabelEncoder**  
+Machine learning models require labels as numeric IDs instead of text. Encoding labels ensures they are in a format the model can use.
+
+**Keep `id2label` and `label2id`**  
+These mappings connect numeric label IDs with their human-readable names. `id2label` converts predictions into class names for interpretability, while `label2id` ensures correct label-to-ID conversion during training. Storing them in the model configuration makes inference outputs understandable.
+
+**Use ClassLabel and Stratified Split**  
+`ClassLabel` preserves both the numeric ID and the original label name inside the dataset, improving readability and compatibility. A stratified split ensures that the proportion of each class is maintained between the training and validation sets, leading to more reliable evaluation results.
+
+
+```{python}
+df = pd.read_csv(
+    "data/raw/nace_train.csv", # TODO: change to augmented dataset
+    index_col=0
+)
+```
+
+```{python}
+data = DatasetDict({
+    'train': Dataset.from_pandas(df)
+})
+```
+
+```{python}
+data['train'][0]
+```
+
+```{python}
+label_encoder = LabelEncoder()
+label_encoder.fit(data['train']['label'])
+
+# Generate mappings
+id2label = {i: str(label) for i, label in enumerate(label_encoder.classes_)}
+label2id = {label: i for i, label in id2label.items()}
+
+class_label = ClassLabel(names=label_encoder.classes_.tolist())
+```
+
+```{python}
+data = data.map(lambda x: {'label': label_encoder.transform(x['label'])}, batched=True)
+# Map your dataset to use the ClassLabel feature for stratification
+data = data.cast_column('label', class_label)
+```
+
+```{python}
+data = data['train'].train_test_split(test_size=0.05, seed=SEED, stratify_by_column="label")
+data["validation"] = data.pop("test")
+```
+
+# 2. Load a pretrained model and tokenizer from the Hugging Face Hub
+Load the model and tokenizer from huggingface. If the model is gated or private, you need to set an environment variable called "HF_TOKEN" that contans your huggingface token.
+
+## **Loading a Pretrained Model**  
+`AutoModelForSequenceClassification.from_pretrained(...)` downloads (or loads from cache) a transformer model designed for text classification.
+
+- **`model_id`**: Identifies the model on the Hugging Face Hub (e.g., `"bert-base-multilingual-uncased"`).  
+- **`num_labels`**: Sets the number of output classes for the classification task.  
+- **`id2label`** / **`label2id`**: Provide mappings between numeric label IDs and human-readable labels, stored in the model configuration so predictions can be interpreted later.  
+- **`.to(device)`**: Moves the model’s weights to the chosen hardware (CPU or GPU) for faster computation.
+
+**Interaction with Hugging Face Hub**  
+When called for the first time with a given `model_id`, Hugging Face will:
+1. **Check the local cache** (default: `~/.cache/huggingface/transformers` or path from `HF_HOME` env variable).
+2. If not found locally, **download the model weights and configuration** from the Hugging Face Hub.
+3. Save them in the cache for future runs, avoiding repeated downloads.
+
+---
+
+## **Loading the Tokenizer**  
+`AutoTokenizer.from_pretrained(model_id)` loads the tokenizer that matches the chosen model.
+
+- Retrieves **vocabulary, tokenization rules, and preprocessing steps** needed to convert raw text into token IDs.
+- Ensures **tokenization is consistent** with the model’s training setup.
+- Uses the same **cache mechanism** as the model loader: checks local cache, downloads from the Hub if necessary, then stores locally.
+
+---
+
+## **Remarks**  
+- The **model** and **tokenizer** must match — both are tied to the same `model_id` to ensure correct input formatting.
+- Using `from_pretrained` makes it easy to reuse pretrained weights and tokenizers without manual file handling.
+- The **cache system** speeds up experimentation, as once a model/tokenizer is downloaded, subsequent runs use the local copy instantly.
+
+```{python}
+model = AutoModelForSequenceClassification.from_pretrained(
+    model_id,
+    num_labels=len(id2label), 
+    id2label=id2label, 
+    label2id=label2id,
+).to(device)
+
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+```
+
+# 3. Tokenize text using the model’s tokenizer
+Now we tokenize and pad the data using the pretrained tokenizer.
+
+```{python}
+def tokenize(example):
+    return tokenizer(example["text"], padding=True, truncation=True, max_length=max_seq_len)
+
+tokenized_data = data.map(
+    tokenize,
+    batched=True
+)
+     
+```
+
+# 4. Fine-tune the model with the Transformers Trainer API
+First, we define a function to compute the metrics that we want to monitor during training.
+
+## `compute_metrics` Function
+
+This function calculates multiple evaluation metrics for a classification model.  
+It is designed to be passed to Hugging Face’s `Trainer`, which automatically calls it during evaluation.
+
+---
+
+### **Inputs**
+- **`eval_pred`**: A tuple `(logits, labels)` provided by the Trainer.
+  - `logits`: Model outputs before activation (shape: `[batch_size, num_classes]`).
+  - `labels`: Ground truth class IDs.
+
+---
+
+### **Steps**
+
+1. **Unpack predictions and labels**
+   - Extracts `logits` and `labels` from the tuple.
+
+2. **Convert logits to predicted class IDs**
+   - Uses `np.argmax(logits, axis=-1)` to choose the class with the highest logit score for each sample.
+
+3. **Determine the number of classes**
+   - Reads `num_classes` from `logits.shape[1]`.
+   - Creates `class_labels` as a range from `0` to `num_classes - 1` to ensure all possible classes are considered in top-k metrics.
+
+4. **Compute metrics**
+   - **Accuracy**: Percentage of correct predictions.
+   - **F1 Macro**: F1 score averaged across all classes equally.
+   - **Precision Macro**: Average precision across all classes, weighted equally.
+   - **Recall Macro**: Average recall across all classes, weighted equally.
+   - **Top-1 Accuracy**: Accuracy when considering only the single most likely prediction.
+   - **Top-2 Accuracy**: Accuracy when considering the two most likely predictions (checks if the correct class is in the top-2 predicted classes).
+
+   `zero_division=0` ensures no errors if a class is missing in predictions or labels.
+
+5. **Return results**
+   - Returns a dictionary with all computed metrics.  
+     Hugging Face’s `Trainer` logs these values and uses them for evaluation reports.
+
+---
+
+### **Why This Matters**
+- Evaluating multiple metrics provides a **complete picture** of model performance beyond simple accuracy.
+- **Macro averaging** treats all classes equally, which is important for imbalanced datasets.
+- **Top-k accuracy** is useful in scenarios where the correct answer being among the top predictions is acceptable (e.g., recommendation systems, multi-choice tasks).
+
+```{python}
+def compute_metrics(eval_pred):
+    logits, labels = eval_pred
+    predictions = np.argmax(logits, axis=-1)
+    
+    num_classes = logits.shape[1]
+    class_labels = np.arange(num_classes)  # Ensure all classes are covered
+    
+    accuracy = accuracy_score(labels, predictions)
+    f1 = f1_score(labels, predictions, average='macro', zero_division=0)
+    precision = precision_score(labels, predictions, average='macro', zero_division=0)
+    recall = recall_score(labels, predictions, average='macro', zero_division=0)
+    top_1_acc = top_k_accuracy_score(labels, logits, k=1, labels=class_labels)
+    top_2_acc = top_k_accuracy_score(labels, logits, k=2, labels=class_labels)
+
+    return {
+        'accuracy': accuracy,
+        'f1_macro': f1,
+        'precision_macro': precision,
+        'recall_macro': recall,
+        'top_1_accuracy': top_1_acc,
+        'top_2_accuracy': top_2_acc,
+    }
+```
+
+Now, we define the training arguments and the trainer class.
+
+## DataCollatorWithPadding
+
+The `DataCollatorWithPadding` is a utility from Hugging Face's `transformers` library that handles **dynamic padding** for batches during training and evaluation.
+
+### How it works
+- Looks at all sequences in the current batch.
+- Finds the **longest sequence** in that batch.
+- Pads all other sequences to match that length.
+- Uses the tokenizer to add the correct padding tokens and attention masks.
+
+### Why use it
+- **Memory efficient** – avoids padding all sequences to a fixed `max_seq_len`.
+- **Faster training** – smaller average sequence length per batch means fewer computations.
+- **Cleaner code** – no need to pre-pad the dataset manually.
+
+### Example
+```python
+from transformers import DataCollatorWithPadding
+
+data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
+
+```{python}
+training_args = TrainingArguments(
+    output_dir=output_dir,
+    num_train_epochs=epochs,
+    learning_rate=learn_rate,
+    lr_scheduler_type=scheduler,
+    per_device_train_batch_size=train_bs,
+    per_device_eval_batch_size=eval_bs,
+    gradient_accumulation_steps=ga_steps,
+    warmup_ratio=warmup,
+    weight_decay=decay,
+    logging_dir='./logs',
+    # logging_steps=log_steps,
+    logging_strategy=logging_strategy,
+    eval_strategy=eval_strategy,
+    save_strategy=save_strategy,
+    fp16=fp16,
+    load_best_model_at_end=load_best,
+    report_to=report_to,
+    log_level=log_level,
+)
+
+data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
+
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=tokenized_data['train'],
+    eval_dataset=tokenized_data['validation'],
+    compute_metrics=compute_metrics,
+    data_collator=data_collator
+)
+```
+
+Finally, we can start training the model.
+
+```{python}
+%%time
+trainer.train()
+```
+
+```{python}
+local_save_path = 'models/localsave/bert'
+```
+
+```{python}
+model.save_pretrained(local_save_path)
+tokenizer.save_pretrained(local_save_path)
+```
+
+```{python}
+!#mc cp -r models/localsave/bert/ s3/${AWS_WORKING_DIRECTORY_PATH}tutorial/bert/
+```
+
+```{python}
+!#mc cp -r s3/${AWS_WORKING_DIRECTORY_PATH}tutorial/bert/ models/localsave/bert/
+```
+
+```{python}
+model = AutoModelForSequenceClassification.from_pretrained(
+    local_save_path,
+    local_files_only=True
+)
+
+tokenizer = AutoTokenizer.from_pretrained(
+    local_save_path,
+    local_files_only=True
+)
+```
+
+# Evaluation
+Now, we can evaluate the model on our test set.
+
+```{python}
+pipe = pipeline(
+    task='text-classification',
+    model=model, 
+    tokenizer=tokenizer, 
+)
+```
+
+```{python}
+df_test = pd.read_csv('data/raw/nace_test.csv', index_col=0)
+```
+
+```{python}
+df_test
+```
+
+```{python}
+y_test = df_test['label'].tolist()
+X_test = df_test['text'].tolist()
+```
+
+```{python}
+%%time
+result = pipe(X_test)
+result_topk = pipe(X_test, top_k=2)
+```
+
+```{python}
+y_pred = [_['label'] for _ in result]
+```
+
+```{python}
+accuracy = accuracy_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred, average='macro', zero_division=0)
+precision = precision_score(y_test, y_pred, average='macro', zero_division=0)
+recall = recall_score(y_test, y_pred, average='macro', zero_division=0)
+```
+
+```{python}
+print('Performance on test set \n')
+print(f'Accuracy score  : {accuracy:.3f}')
+print(f'F1 score        : {f1:.3f}')
+print(f'precision score : {precision:.3f}')
+print(f'recall score    : {recall:.3f}')
+```
+
+```{python}
+# Create probability matrix
+num_samples = len(result_topk)
+num_classes = len(label2id)
+y_pred_proba = np.zeros((num_samples, num_classes))
+
+for i, sample in enumerate(result_topk):
+    for pred in sample:
+        class_idx = label2id[pred['label']]
+        y_pred_proba[i][class_idx] = pred['score']
+```
+
+```{python}
+top1 = top_k_accuracy_score(y_test, y_pred_proba, k=1, labels=list(label2id.keys()))
+top2 = top_k_accuracy_score(y_test, y_pred_proba, k=2, labels=list(label2id.keys()))
+```
+
+```{python}
+print(f'Top 1 accuracy  : {top1:.3f}')
+print(f'Top 2 accuracy  : {top2:.3f}')
+```
+
+
