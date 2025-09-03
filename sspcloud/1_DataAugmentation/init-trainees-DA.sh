@@ -2,11 +2,8 @@
 
 WORK_DIR="/home/onyxia/work"
 GITHUB_REPOSITORY="https://github.com/aiml4os/WP10_tutorial_text_classification.git"
-GITHUB_BRANCH="dev/finetune"
+GITHUB_BRANCH="main"
 NOTEBOOK_DOWNLOAD_URL="https://aiml4os.github.io/WP10_tutorial_text_classification/notebooks/chapters/1_RAG/data_augmentation.out.ipynb"
-DATA_DOWNLOAD_URL="https://github.com/AIML4OS/WP10_tutorial_text_classification/blob/main/chapters/3_RAG/data/NACE_Rev2.1_Structure_Explanatory_Notes_EN.xlsx"
-BUCKET_PATH="s3/yulinhuang/tutorial/bert/"
-DEST_DIR="$HOME/work/models/localsave/bert"
 DEST_FILE="$DEST_DIR/$(basename "$BUCKET_PATH")"
 
 

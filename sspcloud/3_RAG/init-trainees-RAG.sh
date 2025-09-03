@@ -2,7 +2,7 @@
 
 WORK_DIR="/home/onyxia/work"
 GITHUB_REPOSITORY="https://github.com/aiml4os/WP10_tutorial_text_classification.git"
-GITHUB_BRANCH="dev/finetune"
+GITHUB_BRANCH="main"
 NOTEBOOK_DOWNLOAD_URL="https://aiml4os.github.io/WP10_tutorial_text_classification/notebooks/chapters/3_RAG/rag_classification.out.ipynb"
 DATA_DOWNLOAD_URL="https://github.com/AIML4OS/WP10_tutorial_text_classification/raw/refs/heads/main/chapters/3_RAG/data/NACE_Rev2.1_Structure_Explanatory_Notes_EN.xlsx"
 BUCKET_PATH="s3/yulinhuang/tutorial/bert/"
