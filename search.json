@@ -120,19 +120,9 @@
     ]
   },
   {
-    "objectID": "chapters/2_FineTune/fine-tuning-bert-example.html",
-    "href": "chapters/2_FineTune/fine-tuning-bert-example.html",
-    "title": "BERT base multilingual Fine-Tuning",
-    "section": "",
-    "text": "This notebook explores fine-tuning BERT base for text classification.",
-    "crumbs": [
-      "Transformers for text classification"
-    ]
-  },
-  {
     "objectID": "chapters/2_FineTune/fine-tuning-bert-example.html#dependancy-management",
     "href": "chapters/2_FineTune/fine-tuning-bert-example.html#dependancy-management",
-    "title": "BERT base multilingual Fine-Tuning",
+    "title": "Fine-Tuning a Transformers Model Guide",
     "section": "Dependancy management",
     "text": "Dependancy management\nHere we import all dependancies that we will need to use\n\nimport numpy as np\nimport pandas as pd\nimport torch\nfrom transformers import (\n    AutoTokenizer,\n    AutoModelForSequenceClassification,\n    Trainer,\n    TrainingArguments,\n    DataCollatorWithPadding,\n    pipeline,\n    set_seed\n)\nfrom datasets import load_dataset\nfrom datasets import Dataset, ClassLabel, DatasetDict\nfrom sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, top_k_accuracy_score\nfrom sklearn.preprocessing import LabelEncoder\nimport random",
     "crumbs": [
@@ -142,7 +132,7 @@
   {
     "objectID": "chapters/2_FineTune/fine-tuning-bert-example.html#configuration-variables-and-parameters",
     "href": "chapters/2_FineTune/fine-tuning-bert-example.html#configuration-variables-and-parameters",
-    "title": "BERT base multilingual Fine-Tuning",
+    "title": "Fine-Tuning a Transformers Model Guide",
     "section": "Configuration variables and parameters",
     "text": "Configuration variables and parameters\nHere, we can set some parameters with arbitrary value for importing and training.\n\n\nModel Settings\n\n\n\n\n\n\n\n\n\nParameter\nType\nExample Value\nDescription\n\n\n\n\nmodel_id\nstr\n'bert-base-multilingual-uncased'\nThe Hugging Face model ID to load from the hub. Here, a multilingual BERT model is used for supporting multiple languages.\n\n\nmax_seq_len\nint\n256\nThe maximum number of tokens in an input sequence. Longer sequences will be truncated.\n\n\n\n\n\n\nOutput Settings\n\n\n\n\n\n\n\n\n\nParameter\nType\nExample Value\nDescription\n\n\n\n\noutput_dir\nstr\n'saved_models/bert-base-multilingual-uncased'\nDirectory where the trained model, tokenizer, and training logs will be saved.\n\n\n\n\n\n\nTraining Hyperparameters\n\n\n\n\n\n\n\n\n\nParameter\nType\nExample Value\nDescription\n\n\n\n\nepochs\nint\n4\nNumber of training epochs. One epoch means going through the full dataset once.\n\n\nlearn_rate\nfloat\n5e-5\nInitial learning rate for the optimizer (AdamW by default).\n\n\nscheduler\nstr\n'linear'\nLearning rate scheduler type. 'linear' gradually decreases the LR after a warmup period.\n\n\ntrain_bs\nint\n16\nBatch size for training steps.\n\n\neval_bs\nint\n32\nBatch size for evaluation steps.\n\n\nga_steps\nint\n2\nGradient accumulation steps. Allows you to simulate a larger batch size without increasing GPU memory usage.\n\n\ndecay\nfloat\n0.01\nWeight decay to prevent overfitting by penalizing large weights.\n\n\nwarmup\nfloat\n0.1\nFraction of total training steps used for learning rate warmup.\n\n\n\n\n\n\nEvaluation & Logging\n\n\n\n\n\n\n\n\n\nParameter\nType\nExample Value\nDescription\n\n\n\n\neval_strategy\nstr\n'epoch'\nWhen to run evaluation. 'epoch' means after each epoch.\n\n\nlogging_strategy\nstr\n'epoch'\nWhen to log metrics. 'epoch' means at the end of each epoch.\n\n\nsave_strategy\nstr\n'no'\nWhen to save model checkpoints. 'no' means only final save at the end of training.\n\n\nlog_level\nstr\n'warning'\nLogging verbosity. Options include 'debug', 'info', 'warning', 'error'.\n\n\nreport_to\nlist\n[]\nList of reporting integrations (\"wandb\", \"tensorboard\", etc.). Empty means no external reporting.\n\n\n# log_steps\nint\n(commented out)\nIf enabled, logs training metrics every log_steps steps.\n\n\n\n\n\n\nPrecision & Model Loading\n\n\n\n\n\n\n\n\n\nParameter\nType\nExample Value\nDescription\n\n\n\n\nfp16\nbool\nFalse\nWhether to use 16-bit floating-point precision (mixed precision) for faster and memory-efficient training.\n\n\nload_best\nbool\nFalse\nWhether to load the best checkpoint after training based on evaluation metrics.\n\n\n\n\n\nNotes\n\nGradient Accumulation (ga_steps): With train_bs = 16 and ga_steps = 2, the effective batch size is 16 * 2 = 32.\nWarmup (warmup): If you have 1000 total steps, warmup=0.1 means the first 100 steps will gradually ramp up the learning rate.\nMixed Precision (fp16): Useful on GPUs with Tensor Cores (e.g., NVIDIA RTX series) to speed up training and reduce memory usage.\n\n\n\nmodel_id        : str   = f'bert-base-multilingual-uncased'\nmax_seq_len     : int   = 256\n\noutput_dir      : str   = f'saved_models/{model_id}'\nepochs          : int   = 4\nlearn_rate      : float = 5e-5\nscheduler       : str   = 'linear'\ntrain_bs        : int   = 16\neval_bs         : int   = 32\nga_steps        : int   = 2\ndecay           : float = 0.01\nwarmup          : float = 0.1\neval_strategy   : str   = 'epoch'\nlogging_strategy: str   = 'epoch'\nsave_strategy   : str   = 'no'\nfp16            : bool  = False\nload_best       : bool  = False\nreport_to       : list  = []\nlog_level       : str   = 'warning'\n\nSEED            : int   = 42\n\ndevice = torch.device('cuda' if torch.cuda.is_available() else 'cpu')\n\n\nset_seed(SEED)",
     "crumbs": [
@@ -152,7 +142,7 @@
   {
     "objectID": "chapters/2_FineTune/fine-tuning-bert-example.html#convert-dataframe-to-hugging-face-dataset",
     "href": "chapters/2_FineTune/fine-tuning-bert-example.html#convert-dataframe-to-hugging-face-dataset",
-    "title": "BERT base multilingual Fine-Tuning",
+    "title": "Fine-Tuning a Transformers Model Guide",
     "section": "Convert DataFrame to Hugging Face Dataset",
     "text": "Convert DataFrame to Hugging Face Dataset\nTransforming a Pandas DataFrame into a Hugging Face Dataset makes it directly compatible with the Trainer API. This enables efficient tokenization, easy dataset splitting, and optimized batch processing.",
     "crumbs": [
@@ -162,7 +152,7 @@
   {
     "objectID": "chapters/2_FineTune/fine-tuning-bert-example.html#convert-string-labels-to-integers-using-labelencoder",
     "href": "chapters/2_FineTune/fine-tuning-bert-example.html#convert-string-labels-to-integers-using-labelencoder",
-    "title": "BERT base multilingual Fine-Tuning",
+    "title": "Fine-Tuning a Transformers Model Guide",
     "section": "Convert string labels to integers using LabelEncoder",
     "text": "Convert string labels to integers using LabelEncoder\nMachine learning models require labels as numeric IDs instead of text. Encoding labels ensures they are in a format the model can use.",
     "crumbs": [
@@ -172,7 +162,7 @@
   {
     "objectID": "chapters/2_FineTune/fine-tuning-bert-example.html#keep-id2label-and-label2id",
     "href": "chapters/2_FineTune/fine-tuning-bert-example.html#keep-id2label-and-label2id",
-    "title": "BERT base multilingual Fine-Tuning",
+    "title": "Fine-Tuning a Transformers Model Guide",
     "section": "Keep id2label and label2id",
     "text": "Keep id2label and label2id\nThese mappings connect numeric label IDs with their human-readable names. id2label converts predictions into class names for interpretability, while label2id ensures correct label-to-ID conversion during training. Storing them in the model configuration makes inference outputs understandable.",
     "crumbs": [
@@ -182,7 +172,7 @@
   {
     "objectID": "chapters/2_FineTune/fine-tuning-bert-example.html#use-classlabel-and-stratified-split",
     "href": "chapters/2_FineTune/fine-tuning-bert-example.html#use-classlabel-and-stratified-split",
-    "title": "BERT base multilingual Fine-Tuning",
+    "title": "Fine-Tuning a Transformers Model Guide",
     "section": "Use ClassLabel and Stratified Split",
     "text": "Use ClassLabel and Stratified Split\nClassLabel preserves both the numeric ID and the original label name inside the dataset, improving readability and compatibility. A stratified split ensures that the proportion of each class is maintained between the training and validation sets, leading to more reliable evaluation results.\n\ndf = pd.read_csv(\n    \"data/raw/nace_train.csv\", # TODO: change to augmented dataset\n    index_col=0\n)\n\n\ndata = DatasetDict({\n    'train': Dataset.from_pandas(df)\n})\n\n\ndata['train'][0]\n\n\nlabel_encoder = LabelEncoder()\nlabel_encoder.fit(data['train']['label'])\n\n# Generate mappings\nid2label = {i: str(label) for i, label in enumerate(label_encoder.classes_)}\nlabel2id = {label: i for i, label in id2label.items()}\n\nclass_label = ClassLabel(names=label_encoder.classes_.tolist())\n\n\ndata = data.map(lambda x: {'label': label_encoder.transform(x['label'])}, batched=True)\n# Map your dataset to use the ClassLabel feature for stratification\ndata = data.cast_column('label', class_label)\n\n\ndata = data['train'].train_test_split(test_size=0.05, seed=SEED, stratify_by_column=\"label\")\ndata[\"validation\"] = data.pop(\"test\")",
     "crumbs": [
@@ -192,7 +182,7 @@
   {
     "objectID": "chapters/2_FineTune/fine-tuning-bert-example.html#loading-a-pretrained-model",
     "href": "chapters/2_FineTune/fine-tuning-bert-example.html#loading-a-pretrained-model",
-    "title": "BERT base multilingual Fine-Tuning",
+    "title": "Fine-Tuning a Transformers Model Guide",
     "section": "Loading a Pretrained Model",
     "text": "Loading a Pretrained Model\nAutoModelForSequenceClassification.from_pretrained(...) downloads (or loads from cache) a transformer model designed for text classification.\n\nmodel_id: Identifies the model on the Hugging Face Hub (e.g., \"bert-base-multilingual-uncased\").\n\nnum_labels: Sets the number of output classes for the classification task.\n\nid2label / label2id: Provide mappings between numeric label IDs and human-readable labels, stored in the model configuration so predictions can be interpreted later.\n\n.to(device): Moves the model’s weights to the chosen hardware (CPU or GPU) for faster computation.\n\nInteraction with Hugging Face Hub\nWhen called for the first time with a given model_id, Hugging Face will: 1. Check the local cache (default: ~/.cache/huggingface/transformers or path from HF_HOME env variable). 2. If not found locally, download the model weights and configuration from the Hugging Face Hub. 3. Save them in the cache for future runs, avoiding repeated downloads.",
     "crumbs": [
@@ -202,7 +192,7 @@
   {
     "objectID": "chapters/2_FineTune/fine-tuning-bert-example.html#loading-the-tokenizer",
     "href": "chapters/2_FineTune/fine-tuning-bert-example.html#loading-the-tokenizer",
-    "title": "BERT base multilingual Fine-Tuning",
+    "title": "Fine-Tuning a Transformers Model Guide",
     "section": "Loading the Tokenizer",
     "text": "Loading the Tokenizer\nAutoTokenizer.from_pretrained(model_id) loads the tokenizer that matches the chosen model.\n\nRetrieves vocabulary, tokenization rules, and preprocessing steps needed to convert raw text into token IDs.\nEnsures tokenization is consistent with the model’s training setup.\nUses the same cache mechanism as the model loader: checks local cache, downloads from the Hub if necessary, then stores locally.",
     "crumbs": [
@@ -212,7 +202,7 @@
   {
     "objectID": "chapters/2_FineTune/fine-tuning-bert-example.html#remarks",
     "href": "chapters/2_FineTune/fine-tuning-bert-example.html#remarks",
-    "title": "BERT base multilingual Fine-Tuning",
+    "title": "Fine-Tuning a Transformers Model Guide",
     "section": "Remarks",
     "text": "Remarks\n\nThe model and tokenizer must match — both are tied to the same model_id to ensure correct input formatting.\nUsing from_pretrained makes it easy to reuse pretrained weights and tokenizers without manual file handling.\nThe cache system speeds up experimentation, as once a model/tokenizer is downloaded, subsequent runs use the local copy instantly.\n\n\nmodel = AutoModelForSequenceClassification.from_pretrained(\n    model_id,\n    num_labels=len(id2label), \n    id2label=id2label, \n    label2id=label2id,\n).to(device)\n\ntokenizer = AutoTokenizer.from_pretrained(model_id)",
     "crumbs": [
@@ -222,7 +212,7 @@
   {
     "objectID": "chapters/2_FineTune/fine-tuning-bert-example.html#compute_metrics-function",
     "href": "chapters/2_FineTune/fine-tuning-bert-example.html#compute_metrics-function",
-    "title": "BERT base multilingual Fine-Tuning",
+    "title": "Fine-Tuning a Transformers Model Guide",
     "section": "4.1. compute_metrics Function",
     "text": "4.1. compute_metrics Function\nThis function calculates multiple evaluation metrics for a classification model.\nIt is designed to be passed to Hugging Face’s Trainer, which automatically calls it during evaluation.\n\n\nInputs\n\neval_pred: A tuple (logits, labels) provided by the Trainer.\n\nlogits: Model outputs before activation (shape: [batch_size, num_classes]).\nlabels: Ground truth class IDs.\n\n\n\n\n\nSteps\n\nUnpack predictions and labels\n\nExtracts logits and labels from the tuple.\n\nConvert logits to predicted class IDs\n\nUses np.argmax(logits, axis=-1) to choose the class with the highest logit score for each sample.\n\nDetermine the number of classes\n\nReads num_classes from logits.shape[1].\nCreates class_labels as a range from 0 to num_classes - 1 to ensure all possible classes are considered in top-k metrics.\n\nCompute metrics\n\nAccuracy: Percentage of correct predictions.\nF1 Macro: F1 score averaged across all classes equally.\nPrecision Macro: Average precision across all classes, weighted equally.\nRecall Macro: Average recall across all classes, weighted equally.\nTop-1 Accuracy: Accuracy when considering only the single most likely prediction.\nTop-2 Accuracy: Accuracy when considering the two most likely predictions (checks if the correct class is in the top-2 predicted classes).\n\nzero_division=0 ensures no errors if a class is missing in predictions or labels.\nReturn results\n\nReturns a dictionary with all computed metrics.\nHugging Face’s Trainer logs these values and uses them for evaluation reports.\n\n\n\ndef compute_metrics(eval_pred):\n    logits, labels = eval_pred\n    predictions = np.argmax(logits, axis=-1)\n    \n    num_classes = logits.shape[1]\n    class_labels = np.arange(num_classes)  # Ensure all classes are covered\n    \n    accuracy = accuracy_score(labels, predictions)\n    f1 = f1_score(labels, predictions, average='macro', zero_division=0)\n    precision = precision_score(labels, predictions, average='macro', zero_division=0)\n    recall = recall_score(labels, predictions, average='macro', zero_division=0)\n    top_1_acc = top_k_accuracy_score(labels, logits, k=1, labels=class_labels)\n    top_2_acc = top_k_accuracy_score(labels, logits, k=2, labels=class_labels)\n\n    return {\n        'accuracy': accuracy,\n        'f1_macro': f1,\n        'precision_macro': precision,\n        'recall_macro': recall,\n        'top_1_accuracy': top_1_acc,\n        'top_2_accuracy': top_2_acc,\n    }\n\nNow, we define the training arguments and the trainer class.",
     "crumbs": [
@@ -232,7 +222,7 @@
   {
     "objectID": "chapters/2_FineTune/fine-tuning-bert-example.html#datacollatorwithpadding",
     "href": "chapters/2_FineTune/fine-tuning-bert-example.html#datacollatorwithpadding",
-    "title": "BERT base multilingual Fine-Tuning",
+    "title": "Fine-Tuning a Transformers Model Guide",
     "section": "4.2. DataCollatorWithPadding",
     "text": "4.2. DataCollatorWithPadding\nThe DataCollatorWithPadding is a utility from Hugging Face’s transformers library that handles dynamic padding for batches during training and evaluation.\n\nHow it works\n\nLooks at all sequences in the current batch.\nFinds the longest sequence in that batch.\nPads all other sequences to match that length.\nUses the tokenizer to add the correct padding tokens and attention masks.\n\n\n\nWhy use it\n\nMemory efficient – avoids padding all sequences to a fixed max_seq_len.\nFaster training – smaller average sequence length per batch means fewer computations.\nCleaner code – no need to pre-pad the dataset manually.\n\n\ndata_collator = DataCollatorWithPadding(tokenizer=tokenizer)\n\ntraining_args = TrainingArguments(\n    output_dir=output_dir,\n    num_train_epochs=epochs,\n    learning_rate=learn_rate,\n    lr_scheduler_type=scheduler,\n    per_device_train_batch_size=train_bs,\n    per_device_eval_batch_size=eval_bs,\n    gradient_accumulation_steps=ga_steps,\n    warmup_ratio=warmup,\n    weight_decay=decay,\n    logging_dir='./logs',\n    # logging_steps=log_steps,\n    logging_strategy=logging_strategy,\n    eval_strategy=eval_strategy,\n    save_strategy=save_strategy,\n    fp16=fp16,\n    load_best_model_at_end=load_best,\n    report_to=report_to,\n    log_level=log_level,\n)\n\ntrainer = Trainer(\n    model=model,\n    args=training_args,\n    train_dataset=tokenized_data['train'],\n    eval_dataset=tokenized_data['validation'],\n    compute_metrics=compute_metrics,\n    data_collator=data_collator\n)\n\nFinally, we can start training the model.\n\n%%time\ntrainer.train()",
     "crumbs": [
