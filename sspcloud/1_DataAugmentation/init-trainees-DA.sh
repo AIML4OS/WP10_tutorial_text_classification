@@ -3,7 +3,7 @@
 WORK_DIR="/home/onyxia/work"
 GITHUB_REPOSITORY="https://github.com/aiml4os/WP10_tutorial_text_classification.git"
 GITHUB_BRANCH="main"
-NOTEBOOK_DOWNLOAD_URL="https://aiml4os.github.io/WP10_tutorial_text_classification/notebooks/chapters/1_RAG/data_augmentation.out.ipynb"
+NOTEBOOK_DOWNLOAD_URL="https://aiml4os.github.io/WP10_tutorial_text_classification/notebooks/chapters/1_DataAugmentation/data_augmentation.out.ipynb"
 DEST_FILE="$DEST_DIR/$(basename "$BUCKET_PATH")"
 
 
