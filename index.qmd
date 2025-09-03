@@ -119,13 +119,13 @@ The tutorial consists of three parts. Each part is a self-contained notebook. Th
 
 In practice, training data sets that include statistical classification codes are often imbalanced, with certain categories significantly underrepresented. Therefore, some categories do not have enough data for the model to properly learn. One approach for mitigating this issue is data augmentation. In this context, we explore how LLMs together with the official explanatory notes of the classification can be leveraged to generate synthetic data points. 
 
-![](chapters/0_intro/Part1-picture.png)
+![](chapters/0_Intro/Part1-picture.png)
 
 ## Part 2: Fine-tuning a transformer pipeline for text classification
 
 In this part, we will learn how to fine-tune transformer models from Hugging Face for text classification tasks. Using pre-labeled datasets, we will demonstrate how to fine-tune a pretrained model and evaluate its performance on a test set. We illustrate the pipeline on an open data set that links company descriptions with corresponding NACE codes.
 
-![](chapters/0_intro/Part2-picture.png)
+![](chapters/0_Intro/Part2-picture.png)
 
 
 ## Part 3: Setting up a simple RAG pipeline for automatic text classification
@@ -133,7 +133,7 @@ In this part, we will learn how to fine-tune transformer models from Hugging Fac
 We will explore an alternative approach to text classification using a simple Retrieval-Augmented Generation (RAG) pipeline. We
 will	construct a knowledge base using official NACE category descriptions. Applying semantic search, we then select the k-closest classes for a given user query. Finally we will use an LLM to generate classification predictions.
 
-![](chapters/0_intro/Part3-picture.png)
+![](chapters/0_Intro/Part3-picture.png)
 
 # What is this template?
 
