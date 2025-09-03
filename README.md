@@ -2,6 +2,4 @@
 
 This repository provides a clean and modular template to build tutorials for projects in the **AIML4OS** project.
 
-## Usage
-
-➡️ See [this tutorial](https://inseefrlab.github.io/formation-starting-pack/) on how to customize and deploy this template.
+➡️ See [tutorial webpage](https://aiml4os.github.io/WP10_tutorial_text_classification/)
