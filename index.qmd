@@ -105,7 +105,7 @@ gsbpm: "5.1" # See complete taxonomy: https://www.unescap.org/sites/default/d8fi
 
 
 # What is this tutorial about ?
-Link to the introductory [presentation](chapters/0_intro/Introduction.pdf).
+Link to the introductory [presentation](chapters/0_Intro/Introduction.pdf).
 
 
 Official statistics typically use standardized classifications like NACE, ISCO, or COICOP to organize data. Assigning codes to text descriptions is known as the text-to-code problem. For example, we map the answer “I work as a software developer” provided by a respondent  to the ISCO category 21 Science and Engineering Professionals.  
