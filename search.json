@@ -120,6 +120,16 @@
     ]
   },
   {
+    "objectID": "chapters/2_FineTune/fine-tuning-bert-example.html",
+    "href": "chapters/2_FineTune/fine-tuning-bert-example.html",
+    "title": "BERT base multilingual Fine-Tuning",
+    "section": "",
+    "text": "This notebook explores fine-tuning BERT base for text classification.",
+    "crumbs": [
+      "Transformers for text classification"
+    ]
+  },
+  {
     "objectID": "chapters/2_FineTune/fine-tuning-bert-example.html#dependancy-management",
     "href": "chapters/2_FineTune/fine-tuning-bert-example.html#dependancy-management",
     "title": "BERT base multilingual Fine-Tuning",
