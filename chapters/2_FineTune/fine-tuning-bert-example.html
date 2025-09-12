@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -105,6 +105,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -774,9 +777,86 @@ Hugging Face’s <code>Trainer</code> logs these values and uses them for evalua
 <span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Finally, we can start training the model.</p>
-<div id="8f52b50c-79cd-4b8a-8dc1-7a50912fd00e" class="cell">
+<div id="8f52b50c-79cd-4b8a-8dc1-7a50912fd00e" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>trainer.train()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+      
+      <progress value="2140" max="2140" style="width:300px; height:20px; vertical-align: middle;"></progress>
+      [2140/2140 16:19, Epoch 4/4]
+    </div>
+    
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Epoch</th>
+<th data-quarto-table-cell-role="th">Training Loss</th>
+<th data-quarto-table-cell-role="th">Validation Loss</th>
+<th data-quarto-table-cell-role="th">Accuracy</th>
+<th data-quarto-table-cell-role="th">F1 Macro</th>
+<th data-quarto-table-cell-role="th">Precision Macro</th>
+<th data-quarto-table-cell-role="th">Recall Macro</th>
+<th data-quarto-table-cell-role="th">Top 1 Accuracy</th>
+<th data-quarto-table-cell-role="th">Top 2 Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1.308800</td>
+<td>0.755440</td>
+<td>0.790000</td>
+<td>0.719707</td>
+<td>0.715729</td>
+<td>0.738219</td>
+<td>0.790000</td>
+<td>0.892222</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>0.588700</td>
+<td>0.617566</td>
+<td>0.826667</td>
+<td>0.799383</td>
+<td>0.828221</td>
+<td>0.798205</td>
+<td>0.826667</td>
+<td>0.915556</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>0.386100</td>
+<td>0.642195</td>
+<td>0.837778</td>
+<td>0.808899</td>
+<td>0.845185</td>
+<td>0.799265</td>
+<td>0.837778</td>
+<td>0.913333</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>0.248700</td>
+<td>0.652391</td>
+<td>0.834444</td>
+<td>0.823183</td>
+<td>0.832294</td>
+<td>0.821132</td>
+<td>0.834444</td>
+<td>0.923333</td>
+</tr>
+</tbody>
+</table>
+<p>
+</p></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>CPU times: user 16min 18s, sys: 2.98 s, total: 16min 21s
+Wall time: 16min 20s</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>TrainOutput(global_step=2140, training_loss=0.6330723058397525, metrics={'train_runtime': 980.1616, 'train_samples_per_second': 69.784, 'train_steps_per_second': 2.183, 'total_flos': 1458577288617840.0, 'train_loss': 0.6330723058397525, 'epoch': 4.0})</code></pre>
+</div>
 </div>
 </section>
 </section>
@@ -784,84 +864,84 @@ Hugging Face’s <code>Trainer</code> logs these values and uses them for evalua
 <section id="save-and-load-model-in-local-file-system" class="level1">
 <h1>5. Save and load model in local file system</h1>
 <div id="7085aff0-77ae-4317-95b8-2f9eb420a677" class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>local_save_path <span class="op">=</span> <span class="st">'models/localsave/bert'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>local_save_path <span class="op">=</span> <span class="st">'models/localsave/bert'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="faf83449-429d-4bd9-aaea-52c769bc9f00" class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uncomment to save it in local path</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># model.save_pretrained(local_save_path)</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># tokenizer.save_pretrained(local_save_path)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uncomment to save it in local path</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># model.save_pretrained(local_save_path)</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># tokenizer.save_pretrained(local_save_path)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="b239a70c-ba15-4f98-b4ea-144913dd2286" class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> AutoModelForSequenceClassification.from_pretrained(</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    local_save_path,</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    local_files_only<span class="op">=</span><span class="va">True</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>tokenizer <span class="op">=</span> AutoTokenizer.from_pretrained(</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    local_save_path,</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    local_files_only<span class="op">=</span><span class="va">True</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> AutoModelForSequenceClassification.from_pretrained(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    local_save_path,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    local_files_only<span class="op">=</span><span class="va">True</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>tokenizer <span class="op">=</span> AutoTokenizer.from_pretrained(</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    local_save_path,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    local_files_only<span class="op">=</span><span class="va">True</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="evaluate-the-model-and-run-predictions-on-test-dataset-with-transformers-pipeline" class="level1">
 <h1>6. Evaluate the model and run predictions on test dataset with transformers pipeline</h1>
 <p>Now, we can evaluate the model on our test set.</p>
 <div id="620d3765-0a4b-4808-ba6a-2617cb26f4e8" class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>pipe <span class="op">=</span> pipeline(</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    task<span class="op">=</span><span class="st">'text-classification'</span>,</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span>model, </span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    tokenizer<span class="op">=</span>tokenizer, </span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>pipe <span class="op">=</span> pipeline(</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    task<span class="op">=</span><span class="st">'text-classification'</span>,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span>model, </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    tokenizer<span class="op">=</span>tokenizer, </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="7174fc13-31d8-4783-aed9-17a04ef987b1" class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_test <span class="op">=</span> pd.read_csv(<span class="st">'data/raw/nace_test.csv'</span>, index_col<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df_test <span class="op">=</span> pd.read_csv(<span class="st">'data/raw/nace_test.csv'</span>, index_col<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="efaa3a09-26a9-446a-bfd4-ab7ce7fb3513" class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df_test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="2b523dae-a479-4922-bc63-2bdca8efe4c7" class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> df_test[<span class="st">'label'</span>].tolist()</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> df_test[<span class="st">'text'</span>].tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> df_test[<span class="st">'label'</span>].tolist()</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> df_test[<span class="st">'text'</span>].tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="9090e2af-e962-47ef-8010-96bc8a223325" class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> pipe(X_test)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>result_topk <span class="op">=</span> pipe(X_test, top_k<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> pipe(X_test)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>result_topk <span class="op">=</span> pipe(X_test, top_k<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="88fd305e-d28f-4772-a723-58d27a829ef3" class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> [_[<span class="st">'label'</span>] <span class="cf">for</span> _ <span class="kw">in</span> result]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> [_[<span class="st">'label'</span>] <span class="cf">for</span> _ <span class="kw">in</span> result]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="1c70ad51-89d4-4358-8a8b-1c0abd93d8bf" class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>f1 <span class="op">=</span> f1_score(y_test, y_pred, average<span class="op">=</span><span class="st">'macro'</span>, zero_division<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>precision <span class="op">=</span> precision_score(y_test, y_pred, average<span class="op">=</span><span class="st">'macro'</span>, zero_division<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>recall <span class="op">=</span> recall_score(y_test, y_pred, average<span class="op">=</span><span class="st">'macro'</span>, zero_division<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>f1 <span class="op">=</span> f1_score(y_test, y_pred, average<span class="op">=</span><span class="st">'macro'</span>, zero_division<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>precision <span class="op">=</span> precision_score(y_test, y_pred, average<span class="op">=</span><span class="st">'macro'</span>, zero_division<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>recall <span class="op">=</span> recall_score(y_test, y_pred, average<span class="op">=</span><span class="st">'macro'</span>, zero_division<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="898974a8-da20-4fef-b2e1-d6532de4b3ff" class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Performance on test set </span><span class="ch">\n</span><span class="st">'</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Accuracy score  : </span><span class="sc">{</span>accuracy<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'F1 score        : </span><span class="sc">{</span>f1<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'precision score : </span><span class="sc">{</span>precision<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'recall score    : </span><span class="sc">{</span>recall<span class="sc">:.3f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Performance on test set </span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Accuracy score  : </span><span class="sc">{</span>accuracy<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'F1 score        : </span><span class="sc">{</span>f1<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'precision score : </span><span class="sc">{</span>precision<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'recall score    : </span><span class="sc">{</span>recall<span class="sc">:.3f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="f7b0dbd0-7c69-4caf-b2b7-113a0975c31a" class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create probability matrix</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>num_samples <span class="op">=</span> <span class="bu">len</span>(result_topk)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>num_classes <span class="op">=</span> <span class="bu">len</span>(label2id)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>y_pred_proba <span class="op">=</span> np.zeros((num_samples, num_classes))</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, sample <span class="kw">in</span> <span class="bu">enumerate</span>(result_topk):</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> pred <span class="kw">in</span> sample:</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>        class_idx <span class="op">=</span> label2id[pred[<span class="st">'label'</span>]]</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>        y_pred_proba[i][class_idx] <span class="op">=</span> pred[<span class="st">'score'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create probability matrix</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>num_samples <span class="op">=</span> <span class="bu">len</span>(result_topk)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>num_classes <span class="op">=</span> <span class="bu">len</span>(label2id)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>y_pred_proba <span class="op">=</span> np.zeros((num_samples, num_classes))</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, sample <span class="kw">in</span> <span class="bu">enumerate</span>(result_topk):</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> pred <span class="kw">in</span> sample:</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>        class_idx <span class="op">=</span> label2id[pred[<span class="st">'label'</span>]]</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>        y_pred_proba[i][class_idx] <span class="op">=</span> pred[<span class="st">'score'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="bc254999-0d58-4151-a25a-017a7af0bc50" class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>top1 <span class="op">=</span> top_k_accuracy_score(y_test, y_pred_proba, k<span class="op">=</span><span class="dv">1</span>, labels<span class="op">=</span><span class="bu">list</span>(label2id.keys()))</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>top2 <span class="op">=</span> top_k_accuracy_score(y_test, y_pred_proba, k<span class="op">=</span><span class="dv">2</span>, labels<span class="op">=</span><span class="bu">list</span>(label2id.keys()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>top1 <span class="op">=</span> top_k_accuracy_score(y_test, y_pred_proba, k<span class="op">=</span><span class="dv">1</span>, labels<span class="op">=</span><span class="bu">list</span>(label2id.keys()))</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>top2 <span class="op">=</span> top_k_accuracy_score(y_test, y_pred_proba, k<span class="op">=</span><span class="dv">2</span>, labels<span class="op">=</span><span class="bu">list</span>(label2id.keys()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="81d38557-e071-4253-9886-7cb573d20dcb" class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Top 1 accuracy  : </span><span class="sc">{</span>top1<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Top 2 accuracy  : </span><span class="sc">{</span>top2<span class="sc">:.3f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Top 1 accuracy  : </span><span class="sc">{</span>top1<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Top 2 accuracy  : </span><span class="sc">{</span>top2<span class="sc">:.3f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
