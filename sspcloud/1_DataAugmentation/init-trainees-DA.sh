@@ -4,6 +4,7 @@ WORK_DIR="/home/onyxia/work"
 GITHUB_REPOSITORY="https://github.com/aiml4os/WP10_tutorial_text_classification.git"
 GITHUB_BRANCH="main"
 NOTEBOOK_DOWNLOAD_URL="https://aiml4os.github.io/WP10_tutorial_text_classification/notebooks/chapters/1_DataAugmentation/data_augmentation.out.ipynb"
+DATA_DOWNLOAD_URL="https://github.com/AIML4OS/WP10_tutorial_text_classification/raw/refs/heads/main/chapters/1_DataAugmentation/NAFclasses.xlsx"
 DEST_FILE="$DEST_DIR/$(basename "$BUCKET_PATH")"
 
 
@@ -14,6 +15,10 @@ git clone --depth 1 --branch $GITHUB_BRANCH $GITHUB_REPOSITORY temp
 # Install dependencies in system env
 uv pip install -r temp/pyproject.toml --system
 rm -rf temp
+
+# Download the excel data
+echo "Downloading excel"
+curl -L $DATA_DOWNLOAD_URL -o "${WORK_DIR}/NAFclasses.xlsx"
 
 # Download the notebook directly using curl
 echo $NOTEBOOK_DOWNLOAD_URL
