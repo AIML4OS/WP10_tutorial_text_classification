@@ -456,12 +456,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>[]</code></td>
 <td>List of reporting integrations (<code>"wandb"</code>, <code>"tensorboard"</code>, etc.). Empty means no external reporting.</td>
 </tr>
-<tr class="even">
-<td><code># log_steps</code></td>
-<td><code>int</code></td>
-<td><em>(commented out)</em></td>
-<td>If enabled, logs training metrics every <code>log_steps</code> steps.</td>
-</tr>
 </tbody>
 </table>
 <hr>
@@ -499,14 +493,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <hr>
-<section id="notes" class="level4">
-<h4 class="anchored" data-anchor-id="notes"><strong>Notes</strong></h4>
-<ul>
-<li><strong>Gradient Accumulation (<code>ga_steps</code>)</strong>: With <code>train_bs = 16</code> and <code>ga_steps = 2</code>, the <em>effective batch size</em> is <code>16 * 2 = 32</code>.</li>
-<li><strong>Warmup (<code>warmup</code>)</strong>: If you have 1000 total steps, <code>warmup=0.1</code> means the first 100 steps will gradually ramp up the learning rate.</li>
-<li><strong>Mixed Precision (<code>fp16</code>)</strong>: Useful on GPUs with Tensor Cores (e.g., NVIDIA RTX series) to speed up training and reduce memory usage.</li>
-</ul>
-<hr>
 <div id="bae37359-4749-441e-90c6-945d6ef32247" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>model_id        : <span class="bu">str</span>   <span class="op">=</span> <span class="ss">f'bert-base-multilingual-uncased'</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>max_seq_len     : <span class="bu">int</span>   <span class="op">=</span> <span class="dv">256</span></span>
@@ -538,7 +524,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 </section>
-</section>
 <section id="load-a-csv-dataset-and-convert-it-into-the-hugging-face-datasets-format" class="level1">
 <h1>1. Load a CSV dataset and convert it into the Hugging Face Datasets format</h1>
 <section id="convert-dataframe-to-hugging-face-dataset" class="level2">
@@ -558,7 +543,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>ClassLabel</code> preserves both the numeric ID and the original label name inside the dataset, improving readability and compatibility. A stratified split ensures that the proportion of each class is maintained between the training and validation sets, leading to more reliable evaluation results.</p>
 <div id="49301db0-046f-42af-b2d6-426f33f206ab" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"data/raw/nace_train.csv"</span>, <span class="co"># </span><span class="al">TODO</span><span class="co">: change to augmented dataset</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"data/raw/nace_train.csv"</span>,</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    index_col<span class="op">=</span><span class="dv">0</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -878,15 +863,16 @@ Wall time: 16min 20s</code></pre>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># tokenizer.save_pretrained(local_save_path)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="b239a70c-ba15-4f98-b4ea-144913dd2286" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> AutoModelForSequenceClassification.from_pretrained(</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    local_save_path,</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    local_files_only<span class="op">=</span><span class="va">True</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>tokenizer <span class="op">=</span> AutoTokenizer.from_pretrained(</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    local_save_path,</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    local_files_only<span class="op">=</span><span class="va">True</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load model and tokenizer from local file system</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> AutoModelForSequenceClassification.from_pretrained(</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    local_save_path,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    local_files_only<span class="op">=</span><span class="va">True</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>tokenizer <span class="op">=</span> AutoTokenizer.from_pretrained(</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    local_save_path,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    local_files_only<span class="op">=</span><span class="va">True</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="evaluate-the-model-and-run-predictions-on-test-dataset-with-transformers-pipeline" class="level1">
