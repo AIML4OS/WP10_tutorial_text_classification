@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -70,14 +70,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../resources/profile/main3.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d68be38d83eca2bb035acf846ffba811.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1713c1db1ad41a796903378fc9ac7b2b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-1713c1db1ad41a796903378fc9ac7b2b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1713c1db1ad41a796903378fc9ac7b2b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -105,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
@@ -137,7 +142,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../resources/profile/main3.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../../resources/profile/main3.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../resources/profile/main3.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -218,17 +224,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The goal of this notebook is to explain how to use LLMs for synthetic data generation, especially in the context of statistical classifications. This is an important step towards training a classifier, since it helps to mitigate some problems with real-world data like scarcity, mislabelling and data gaps.</p>
-<div id="2c70db35-5006-46be-a5ca-a770ca4fe297" class="cell" data-execution_count="88">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install openai</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The goal of this notebook is to explain how to use LLMs for synthetic data generation, especially in the context of statistical classifications. This is an important step towards training a classifier, since it helps to mitigate some problems with real-world data like scarcity, mislabelling and data gaps. Moreover, as we will see, this strategy allows us to significantly improve the performance of classifiers using few resources. An implementation of a full pipeline, together with documentation and a jupyter notebook tutorial, can be seen in https://github.com/AIML4OS/WP10_Cluster1_StatCodGen#</p>
+<div id="2c70db35-5006-46be-a5ca-a770ca4fe297" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install openai</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="3ba9b6fb-2143-493b-a604-2c61541d0f56" class="cell" data-execution_count="89">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openai <span class="co">#for LLMs calls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3ba9b6fb-2143-493b-a604-2c61541d0f56" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openai <span class="co">#for LLMs calls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="why-do-we-need-synthetic-data" class="level2">
 <h2 class="anchored" data-anchor-id="why-do-we-need-synthetic-data">1. Why do we need synthetic data?</h2>
-<p>Real-world data for training classifications models have several issues: - Statistical classifications are very complex and have lots of nuances and caveats, so it is not always clear how to classify a given text. - Sometimes data is annotated by non-experts, which lead to mistakes. - Some texts are ambiguous, meaning that there is not enough information to reliably classify them in one class. - Some classes are hugely underrepresented in real-world data (by the structure of the economy), so it can be difficult to obtain enough samples for that data.</p>
+<p>Real-world data for training classifiers for statistical classifications have several issues: - Statistical classifications are very complex and have lots of nuances and caveats, so it is not always clear how to classify a given text. - Sometimes data is annotated by non-experts, which lead to mistakes. - Some texts are ambiguous, meaning that there is not enough information to reliably classify them in one class. - Some classes are hugely underrepresented in real-world data (by the structure of the economy), so it can be difficult to obtain enough samples for that data.</p>
 <p>Moreover, obtaining more real-world data is usually a very resource-expensive task. However, nowadays we have at our disposal the generative capabilities of LLMs, which produce text which is nearly indistinguishable from human-produced text. We can exploit this to generate as many real-looking samples as we want very quickly and in a completely automated way.</p>
 <p>Empirically it has been observed that mixing real-world data with good-quality synthetic data improves substantially the accuracy of the classification models.</p>
 </section>
@@ -237,16 +243,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="sample-data" class="level3">
 <h3 class="anchored" data-anchor-id="sample-data">2.1 Sample data</h3>
 <p>Here we read the real-world sample data available to train the model and do some easy explanatory analysis to check class coverage.</p>
-<div id="4d23303a-36ab-48cc-b6da-326ad4bc6c55" class="cell" data-scrolled="true" data-execution_count="90">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_parquet(</span>
+<div id="4d23303a-36ab-48cc-b6da-326ad4bc6c55" class="cell" data-scrolled="true" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_parquet(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://minio.lab.sspcloud.fr/projet-formation/diffusion/mlops/data/firm_activity_data.parquet"</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="90">
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -256,27 +262,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
+<th data-quarto-table-cell-role="th">0</th>
 <td>8220Z</td>
 <td>MISSIONS PONCTUELLES A L AIDE D UNE PLATEFORME</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
+<th data-quarto-table-cell-role="th">1</th>
 <td>8553Z</td>
 <td>INSPECTEUR AUTOMOBILE</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
+<th data-quarto-table-cell-role="th">2</th>
 <td>5520Z</td>
 <td>LA LOCATION TOURISTIQUE DE LOGEMENTS INSOLITES...</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
+<th data-quarto-table-cell-role="th">3</th>
 <td>4791A</td>
 <td>COMMERCE DE TOUT ARTICLES ET PRODUITS MARCHAND...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
+<th data-quarto-table-cell-role="th">4</th>
 <td>9499Z</td>
 <td>REGROUPEMENT RETRAITE</td>
 </tr>
@@ -286,8 +292,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="7baf73f3-603b-4d22-b33e-a68cd09ecc0c" class="cell" data-execution_count="91">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>nace_2digit_to_section <span class="op">=</span> {</span>
+<div id="7baf73f3-603b-4d22-b33e-a68cd09ecc0c" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>nace_2digit_to_section <span class="op">=</span> {</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Section A: Agriculture, forestry and fishing</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"01"</span>: <span class="st">"A"</span>, <span class="st">"02"</span>: <span class="st">"A"</span>, <span class="st">"03"</span>: <span class="st">"A"</span>,</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -354,12 +360,93 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Section U: Activities of extraterritorial organizations</span></span>
 <span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>    <span class="st">"99"</span>: <span class="st">"U"</span></span>
-<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="7e9082ff-a1c7-49c5-a00a-1a9d32849cb0" class="cell" data-execution_count="92">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'label'</span>] <span class="op">=</span> df[<span class="st">'nace'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[:<span class="dv">2</span>]).<span class="bu">map</span>(nace_2digit_to_section)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'label'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="92">
+<div id="138d8b85-e647-45aa-888d-35d11453562d" class="cell" data-scrolled="true" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'label'</span>] <span class="op">=</span> df[<span class="st">'nace'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[:<span class="dv">2</span>]).<span class="bu">map</span>(nace_2digit_to_section)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">nace</th>
+<th data-quarto-table-cell-role="th">text</th>
+<th data-quarto-table-cell-role="th">label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>8220Z</td>
+<td>MISSIONS PONCTUELLES A L AIDE D UNE PLATEFORME</td>
+<td>N</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>8553Z</td>
+<td>INSPECTEUR AUTOMOBILE</td>
+<td>P</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>5520Z</td>
+<td>LA LOCATION TOURISTIQUE DE LOGEMENTS INSOLITES...</td>
+<td>I</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>4791A</td>
+<td>COMMERCE DE TOUT ARTICLES ET PRODUITS MARCHAND...</td>
+<td>G</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>9499Z</td>
+<td>REGROUPEMENT RETRAITE</td>
+<td>S</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="2042e80f-b35a-40d1-9576-a2bfe896cbd7" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add all possible labels</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>all_labels <span class="op">=</span> <span class="bu">sorted</span>(<span class="bu">list</span>(<span class="bu">set</span>(nace_2digit_to_section.values())))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>all_labels <span class="co"># From A to U</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>['A',
+ 'B',
+ 'C',
+ 'D',
+ 'E',
+ 'F',
+ 'G',
+ 'H',
+ 'I',
+ 'J',
+ 'K',
+ 'L',
+ 'M',
+ 'N',
+ 'O',
+ 'P',
+ 'Q',
+ 'R',
+ 'S',
+ 'T',
+ 'U']</code></pre>
+</div>
+</div>
+<div id="a35c2c50-19c3-457b-8936-cbb806506c3e" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'label'</span>] <span class="op">=</span> pd.Categorical(df[<span class="st">'label'</span>], categories <span class="op">=</span> all_labels)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'label'</span>].value_counts()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>label
 G    122216
 M    103344
@@ -381,7 +468,18 @@ E      1655
 O       161
 B       129
 U        11
+T         0
 Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<div id="ab75e5b0-2f18-46f5-9066-a4af54ec04c7" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'label'</span>].value_counts().sort_index().plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="data_augmentation_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We see that some sections, particularly O, B and U have very few training samples. Moreover there are no samples for section T. We are going to generate samples for these sections. To obtain the best results, it is important to generate samples at the most disaggregated level (class) and then aggregate them to the desired level. In this way we can leverage all the information contained in the explanatory notes.</p>
@@ -390,14 +488,14 @@ Name: count, dtype: int64</code></pre>
 <h3 class="anchored" data-anchor-id="explanatory-notes">2.2 Explanatory notes</h3>
 <p>We will use the information in the explanatory notes of the statistical classification (NACE in this case) in order to provide the necessary information to the LLM to generate new samples. Explanatory notes contain a lot of high-quality information for each class of the statistical classifcation. Typically the information provided consists of: - <strong>Code of the class</strong> - <strong>Title of the class</strong> - <strong>Includes:</strong> a description of activities included in this class. - <strong>Also includes:</strong> a description of some activities which are also included in this class. - <strong>Not includes:</strong> a description of some activities which are not included in the class, but are related to activities which are included.</p>
 <p>In order to use the information contained in the explanatory notes in an easy way it is convenient to prepare them in a machine-readable format, following the above categories. This can be done in formats like XML or JSON, or simply in an excel or csv file. In this case we have prepared an excel file with the information contained in the NAF notes. At Statistics Spain we provide an excel file with this information (https://www.ine.es/daco/daco42/clasificaciones/cnae25/notas_explicativas_CNAE_2025.xlsx)</p>
-<div id="1bada200-0e79-4fbb-82c5-633b1ecfb263" class="cell" data-execution_count="95">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>NAFnotes <span class="op">=</span> pd.read_excel(<span class="st">"NAFclasses.xlsx"</span>, keep_default_na<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>NAFnotes.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="95">
+<div id="1bada200-0e79-4fbb-82c5-633b1ecfb263" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>NAFnotes <span class="op">=</span> pd.read_excel(<span class="st">"NAFclasses.xlsx"</span>, keep_default_na<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>NAFnotes.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -411,7 +509,7 @@ Name: count, dtype: int64</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
+<th data-quarto-table-cell-role="th">0</th>
 <td>A</td>
 <td>01.11Y</td>
 <td>Culture de céréales, à l'exception du riz, de...</td>
@@ -420,7 +518,7 @@ Name: count, dtype: int64</code></pre>
 <td>Cette sous-classe ne comprend pas : - la cultu...</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
+<th data-quarto-table-cell-role="th">1</th>
 <td>A</td>
 <td>01.12Y</td>
 <td>Culture du riz</td>
@@ -429,7 +527,7 @@ Name: count, dtype: int64</code></pre>
 <td></td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
+<th data-quarto-table-cell-role="th">2</th>
 <td>A</td>
 <td>01.13Y</td>
 <td>Culture de légumes, de melons, de racines et ...</td>
@@ -438,7 +536,7 @@ Name: count, dtype: int64</code></pre>
 <td>Cette sous-classe ne comprend pas : - la cultu...</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
+<th data-quarto-table-cell-role="th">3</th>
 <td>A</td>
 <td>01.14Y</td>
 <td>Culture de la canne à sucre</td>
@@ -447,7 +545,7 @@ Name: count, dtype: int64</code></pre>
 <td>Cette sous-classe ne comprend pas : - la cultu...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
+<th data-quarto-table-cell-role="th">4</th>
 <td>A</td>
 <td>01.15Y</td>
 <td>Culture du tabac</td>
@@ -473,30 +571,30 @@ Name: count, dtype: int64</code></pre>
 <p>First, we show how to set up an LLM API. There are essentially two ways to use an LLM: locally or remotely. Both have advantages and disadvantages: - Local LLMs: uses an LLM which is directly run in our computer (or the organization servers). Using an LLM locally allow us to have complete control over the LLM and avoids cost and security concerns. However, our organization needs the adequate hardware (GPUs), especially for the larger models. We are limited to use only open-source models (excluding e.g.&nbsp;most of OpenAI models). Setting up the LLM for local use involves some extra steps before we can access it via an API. Fortunately, nowadays there is software which makes this step very easy, like Ollama or vLLM. - Remote LLMs: uses an LLM which runs in remote servers, typically in the premises of the provider of the model (OpenAI, Meta, Microsoft, …). The advantages are that they are easier to set up and use, allow us to run very large models without having to care about computing resources, and allow us to run closed-source models like most of OpenAI models. The disadvantages are the costs (each API call costs a quantity of money), security concerns, and less control over the models (they can update a model or discontinue it).</p>
 <p>In this tutorial we will use for simplicity a remote provider, <strong>Groq</strong> (do not confuse with Grok, the family of xAI models), which has the advantage of allowing some free tokens and which is the provider we have used at Statistics Spain.</p>
 <p>Groq uses the OpenAI API to make the calls to the LLMs. Therefore, we must make sure we include the line: <code>import openai</code> in our code. The next step is to log in (or create an account) at the Groq website: https://groq.com/ , go to “API Keys” and click on “Create API key”. After introducing a name the key will be created. We must copy the key and put it in a python variable:</p>
-<div id="6bf52cf4-5b4f-4e8a-ad28-71574931a80a" class="cell" data-execution_count="96">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>API_KEY<span class="op">=</span><span class="st">'&lt;INSERT_YOUR_API_KEY_HERE&gt;'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6bf52cf4-5b4f-4e8a-ad28-71574931a80a" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>API_KEY<span class="op">=</span><span class="st">'&lt;INSERT_API_KEY_HERE&gt;'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Now to set up the client we execute the next chunk of code:</p>
-<div id="cfb7c499-1427-48f5-95ba-c36f953259a3" class="cell" data-execution_count="97">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparing Groq API</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> openai.OpenAI(</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    api_key<span class="op">=</span>API_KEY,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    base_url<span class="op">=</span><span class="st">"https://api.groq.com/openai/v1"</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cfb7c499-1427-48f5-95ba-c36f953259a3" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparing Groq API</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> openai.OpenAI(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    api_key<span class="op">=</span>API_KEY,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    base_url<span class="op">=</span><span class="st">"https://api.groq.com/openai/v1"</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We now can use the models provided by Groq. To do it we use the next code, giving it a prompt:</p>
-<div id="5b2d13f9-a3d3-494a-ac6e-bed025581af0" class="cell" data-execution_count="102">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Groq call</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> client.responses.create(</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"llama-3.3-70b-versatile"</span>, <span class="co"># model we want to use</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">input</span><span class="op">=</span><span class="st">"Hi! How are you?"</span>,        <span class="co"># prompt</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5b2d13f9-a3d3-494a-ac6e-bed025581af0" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Groq call</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> client.responses.create(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"llama-3.3-70b-versatile"</span>, <span class="co"># model we want to use</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">input</span><span class="op">=</span><span class="st">"Hi! How are you?"</span>,        <span class="co"># prompt</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>It returns us a Response object, which contains all the information of the LLM call. Here we will only be interested in the output of the model, which can be accessed as follows:</p>
-<div id="39c9ac3d-0948-4da3-b706-154d439a7e3c" class="cell" data-execution_count="103">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>response.output_text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="103">
-<pre><code>"Hello. I'm just a computer program, so I don't have feelings or emotions like humans do. However, I'm functioning properly and ready to assist you with any questions or tasks you may have. How can I help you today?"</code></pre>
+<div id="39c9ac3d-0948-4da3-b706-154d439a7e3c" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>response.output_text</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>"Hello. I'm doing well, thanks for asking. I'm a large language model, so I don't have feelings or emotions like humans do, but I'm functioning properly and ready to assist you with any questions or tasks you may have. How about you? How's your day going?"</code></pre>
 </div>
 </div>
 </section>
@@ -505,96 +603,127 @@ Name: count, dtype: int64</code></pre>
 <p>We use the explanatory notes of the statistical classification in order to generate new samples. Since the explanatory notes are a high-quality source, we expect that there are few mislabelled samples in the generated samples. Indeed, empirically it has been verified that the synthetic data generated in this way generally contains much less mistakes than real-world data.</p>
 <p>Our strategy for data generation will consist in constructing a generic prompt, which can be easily adapted to each class, that includes the title of the class and the relevant information from the explanatory notes, and then pass this prompt to an LLM which will generate the desired number of samples.</p>
 <p>In order to obtain the best possible results it is important to construct the prompt carefully. While this is a highly empirical task, there are some guidelines which have proven to be universally useful (see, for instance, Section 3.1 of https://arxiv.org/abs/2406.15126v1). A well-constructed prompt should consist of the following parts: - <strong>Task specification:</strong> A description of the task the LLM must fulfill. A prologue to set the scene, such as “You are an expert in training data generation for classification models” often improves performance. - <strong>Conditions:</strong> The conditions and instructions the LLM must follow in the generation task. - <strong>In-context examples:</strong> Examples of the expected output. This has been observed to provide a huge performance improvement.</p>
-<div id="28e23657-32ea-4817-971d-a53fc13da89d" class="cell" data-execution_count="104">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_prompt(root, text, number):</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    prompt_process_notes <span class="op">=</span> (</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Vous êtes un expert en génération de données d'entraînement pour les modèles de classification. "</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Votre tâche consiste à prendre une phrase racine d'une activité économique générale et à générer des phrases d'entraînement à partir d'exemples concrets inclus dans un texte. "</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Le cas échéant, essayez d'introduire le mot 'autre' ou 'autre' ainsi que l'utilisation ou la destination du produit. "</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Chaque fois qu'un objet est fabriqué, incluez le matériau à partir duquel il est fait. "</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Évitez de produire des phrases complètement différentes ou changeant de contexte et ne retournez QUE des phrases sans introduction, commentaire, explication ou phrase supplémentaire. "</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Évitez d'introduire vos résultats par des phrases telles que 'voici les phrases générées' ou similaires. "</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Je veux utiliser votre résultat directement, donc je veux UNIQUEMENT les phrases. "</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Voici un exemple : "</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Racine : Production de produits de boulangerie et de confiserie. "</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Texte : Cette classe comprend la fabrication de tous les produits de boulangerie tels que : pains, gâteaux, autres farines et pains destinés à l'alimentation animale. "</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Sortie : "</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"FABRICATION DE MICHES DE PAIN. "</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"PRODUCTION DE PAIN POUR ANIMAUX. "</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"PRODUCTION DE GÂTEAUX. "</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"PRODUCTION D'AUTRES FARINES. "</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"Maintenant vous le faites avec la racine et le texte suivants, en générant </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss"> phrases: "</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"Racine: </span><span class="sc">{</span>root<span class="sc">}</span><span class="ss">. "</span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"Texte: </span><span class="sc">{</span>text<span class="sc">}</span><span class="ss">."</span></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> prompt_process_notes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="28e23657-32ea-4817-971d-a53fc13da89d" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_prompt(root, text, number):</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    prompt_process_notes <span class="op">=</span> (</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Vous êtes un expert en génération de données d'entraînement pour les modèles de classification.</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Votre tâche consiste à prendre une phrase racine d'une activité économique générale et à générer des phrases d'entraînement à partir d'exemples concrets inclus dans un texte.</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Le cas échéant, essayez d'introduire le mot 'autre' ou 'autre' ainsi que l'utilisation ou la destination du produit.</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Chaque fois qu'un objet est fabriqué, incluez le matériau à partir duquel il est fait.</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Évitez de produire des phrases complètement différentes ou changeant de contexte et ne retournez QUE des phrases sans introduction, commentaire, explication ou phrase supplémentaire.</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Évitez d'introduire vos résultats par des phrases telles que 'voici les phrases générées' ou similaires.</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Écrivez chaque phrase sur une ligne séparée.</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Écrivez tout en majuscules.</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Ne mets pas de point à la fin de la phrase.</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Je veux utiliser votre résultat directement, donc je veux UNIQUEMENT les phrases.</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Voici un exemple :</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Racine : Production de produits de boulangerie et de confiserie.</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Texte : Cette classe comprend la fabrication de tous les produits de boulangerie tels que : pains, gâteaux, autres farines et pains destinés à l'alimentation animale.</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Sortie :</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"FABRICATION DE MICHES DE PAIN</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"PRODUCTION DE PAIN POUR ANIMAUX</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"PRODUCTION DE GÂTEAUX</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"PRODUCTION D'AUTRES FARINES</span><span class="ch">\n</span><span class="st"> "</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"Maintenant vous le faites avec la racine et le texte suivants, en générant </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss"> phrases:</span><span class="ch">\n</span><span class="ss"> "</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"Racine: </span><span class="sc">{</span>root<span class="sc">}</span><span class="ss">.</span><span class="ch">\n</span><span class="ss"> "</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"Texte: </span><span class="sc">{</span>text<span class="sc">}</span><span class="ss">."</span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> prompt_process_notes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>First we see how it works in one specific case, step by step. We will use subclass 25.11Y.</p>
-<div id="b1f3dcce-fdaf-48fe-b2c1-76bed3798b58" class="cell" data-execution_count="105">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>prompt <span class="op">=</span> generate_prompt(<span class="st">"Fabrication de structures métalliques et de parties de structures"</span>, </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"""Cette sous-classe comprend :</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="st">                            - la fabrication de cadres métalliques ou d’ossatures pour la construction et de leurs éléments </span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="st">                            (tours, pylônes en treillis, armatures, ponts, éléments de ponts, etc.)</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="st">                            - la fabrication de matériel d'échafaudage, de coffrage ou d'étayage</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="st">                            - la fabrication de cadres métalliques pour équipements industriels (cadres pour hauts fourneaux, </span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="st">                            matériels de manutention, etc.)</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="st">                            - la fabrication de constructions préfabriquées principalement en métaux :</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="st">                            • baraques de chantier, éléments modulaires pour expositions, etc.</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="st">                            """</span>, </span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>                         <span class="dv">10</span>)</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>prompt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="105">
-<pre><code>"Vous êtes un expert en génération de données d'entraînement pour les modèles de classification. Votre tâche consiste à prendre une phrase racine d'une activité économique générale et à générer des phrases d'entraînement à partir d'exemples concrets inclus dans un texte. Le cas échéant, essayez d'introduire le mot 'autre' ou 'autre' ainsi que l'utilisation ou la destination du produit. Chaque fois qu'un objet est fabriqué, incluez le matériau à partir duquel il est fait. Évitez de produire des phrases complètement différentes ou changeant de contexte et ne retournez QUE des phrases sans introduction, commentaire, explication ou phrase supplémentaire. Évitez d'introduire vos résultats par des phrases telles que 'voici les phrases générées' ou similaires. Je veux utiliser votre résultat directement, donc je veux UNIQUEMENT les phrases. Voici un exemple : Racine : Production de produits de boulangerie et de confiserie. Texte : Cette classe comprend la fabrication de tous les produits de boulangerie tels que : pains, gâteaux, autres farines et pains destinés à l'alimentation animale. Sortie : FABRICATION DE MICHES DE PAIN. PRODUCTION DE PAIN POUR ANIMAUX. PRODUCTION DE GÂTEAUX. PRODUCTION D'AUTRES FARINES. Maintenant vous le faites avec la racine et le texte suivants, en générant 10 phrases: Racine: Fabrication de structures métalliques et de parties de structures. Texte: Cette sous-classe comprend :\n                            - la fabrication de cadres métalliques ou d’ossatures pour la construction et de leurs éléments \n                            (tours, pylônes en treillis, armatures, ponts, éléments de ponts, etc.)\n                            - la fabrication de matériel d'échafaudage, de coffrage ou d'étayage\n                            - la fabrication de cadres métalliques pour équipements industriels (cadres pour hauts fourneaux, \n                            matériels de manutention, etc.)\n                            - la fabrication de constructions préfabriquées principalement en métaux :\n                            • baraques de chantier, éléments modulaires pour expositions, etc.\n                            ."</code></pre>
+<div id="b1f3dcce-fdaf-48fe-b2c1-76bed3798b58" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>prompt <span class="op">=</span> generate_prompt(<span class="st">"Fabrication de structures métalliques et de parties de structures"</span>, </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"""Cette sous-classe comprend :</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="st">                            - la fabrication de cadres métalliques ou d’ossatures pour la construction et de leurs éléments </span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="st">                            (tours, pylônes en treillis, armatures, ponts, éléments de ponts, etc.)</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="st">                            - la fabrication de matériel d'échafaudage, de coffrage ou d'étayage</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="st">                            - la fabrication de cadres métalliques pour équipements industriels (cadres pour hauts fourneaux, </span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="st">                            matériels de manutention, etc.)</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="st">                            - la fabrication de constructions préfabriquées principalement en métaux :</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="st">                            • baraques de chantier, éléments modulaires pour expositions, etc.</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="st">                            """</span>, </span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>                         <span class="dv">10</span>)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(prompt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Vous êtes un expert en génération de données d'entraînement pour les modèles de classification.
+ Votre tâche consiste à prendre une phrase racine d'une activité économique générale et à générer des phrases d'entraînement à partir d'exemples concrets inclus dans un texte.
+ Le cas échéant, essayez d'introduire le mot 'autre' ou 'autre' ainsi que l'utilisation ou la destination du produit.
+ Chaque fois qu'un objet est fabriqué, incluez le matériau à partir duquel il est fait.
+ Évitez de produire des phrases complètement différentes ou changeant de contexte et ne retournez QUE des phrases sans introduction, commentaire, explication ou phrase supplémentaire.
+ Évitez d'introduire vos résultats par des phrases telles que 'voici les phrases générées' ou similaires.
+ Écrivez chaque phrase sur une ligne séparée.
+ Écrivez tout en majuscules.
+ Ne mets pas de point à la fin de la phrase.
+ Je veux utiliser votre résultat directement, donc je veux UNIQUEMENT les phrases.
+ Voici un exemple :
+ Racine : Production de produits de boulangerie et de confiserie.
+ Texte : Cette classe comprend la fabrication de tous les produits de boulangerie tels que : pains, gâteaux, autres farines et pains destinés à l'alimentation animale.
+ Sortie :
+ FABRICATION DE MICHES DE PAIN
+ PRODUCTION DE PAIN POUR ANIMAUX
+ PRODUCTION DE GÂTEAUX
+ PRODUCTION D'AUTRES FARINES
+ Maintenant vous le faites avec la racine et le texte suivants, en générant 10 phrases:
+ Racine: Fabrication de structures métalliques et de parties de structures.
+ Texte: Cette sous-classe comprend :
+                            - la fabrication de cadres métalliques ou d’ossatures pour la construction et de leurs éléments 
+                            (tours, pylônes en treillis, armatures, ponts, éléments de ponts, etc.)
+                            - la fabrication de matériel d'échafaudage, de coffrage ou d'étayage
+                            - la fabrication de cadres métalliques pour équipements industriels (cadres pour hauts fourneaux, 
+                            matériels de manutention, etc.)
+                            - la fabrication de constructions préfabriquées principalement en métaux :
+                            • baraques de chantier, éléments modulaires pour expositions, etc.
+                            .</code></pre>
 </div>
 </div>
-<div id="7c5729e9-de57-4368-a423-39aa973d216d" class="cell" data-execution_count="106">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Groq call</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> client.responses.create(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"llama-3.3-70b-versatile"</span>,</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">input</span><span class="op">=</span>prompt,</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7c5729e9-de57-4368-a423-39aa973d216d" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Groq call</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> client.responses.create(</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"llama-3.3-70b-versatile"</span>,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">input</span><span class="op">=</span>prompt,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="f5a7776d-f60a-45df-9efa-46cbc9816747" class="cell" data-scrolled="true" data-execution_count="107">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>response.output_text.split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="107">
-<pre><code>['FABRICATION DE CADRES MÉTALLIQUES POUR CONSTRUCTION.',
- 'PRODUCTION DE PYLÔNES EN TREILLIS EN MÉTAL POUR APPUI DE STRUCTURES.',
- 'CONSTRUCTION DE PONTS MÉTALLIQUES DESTINÉS À LA CIRCULATION ROUDRIÈRE.',
- "FABRICATION DE MATÉRIEL D'ÉCHAFAUDAGE EN MÉTAL POUR TRAVAUX DE CONSTRUCTION.",
- 'PRODUCTION DE COFFRAGE MÉTALLIQUE POUR BÉTONNAGE.',
- 'CONSTRUCTION DE BARAQUES DE CHANTIER EN MÉTAL POUR HÉBERGEMENT DE TRAVAILLEURS.',
- 'FABRICATION DE CADRES MÉTALLIQUES POUR ÉQUIPEMENTS INDUSTRIELS TELS QUE HAUTS FOURNEAUX.',
- "PRODUCTION D'ÉLÉMENTS MODULAIRES EN MÉTAL POUR EXPOSITIONS ET ÉVÉNEMENTS.",
- "FABRICATION DE STRUCTURES MÉTALLIQUES D'ÉTAYAGE POUR APPUI DE CONSTRUCTIONS.",
- "CONSTRUCTION DE TOURS MÉTALLIQUES DESTINÉES À D'AUTRES USAGE DANS L'INDUSTRIE."]</code></pre>
+<div id="f5a7776d-f60a-45df-9efa-46cbc9816747" class="cell" data-scrolled="true" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>response.output_text.split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>['FABRICATION DE CADRES MÉTALLIQUES POUR CONSTRUCTION',
+ 'FABRICATION DE TOURS EN MÉTAUX POUR SUPPORT',
+ "FABRICATION DE PYLÔNES EN TREILLIS POUR DISTRIBUTION D'ÉNERGIE",
+ 'FABRICATION DE PONT EN MÉTAUX DESTINÉ À LA CIRCULATION',
+ "FABRICATION DE MATÉRIEL D'ÉCHAFAUDAGE EN MÉTAUX POUR CONSTRUCTION",
+ 'FABRICATION DE COFFRAGE EN MÉTAUX POUR BÉTONNAGE',
+ 'FABRICATION DE CADRES MÉTALLIQUES POUR ÉQUIPEMENTS INDUSTRIELS',
+ 'FABRICATION DE BARAQUES DE CHANTIER EN MÉTAUX POUR STOCKAGE',
+ "FABRICATION D'ÉLÉMENTS MODULAIRES EN MÉTAUX POUR EXPOSITION",
+ 'FABRICATION DE STRUCTURES PRÉFABRIQUÉES EN MÉTAUX POUR CONSTRUCTION']</code></pre>
 </div>
 </div>
 <p>Now we can prepare, following the same steps, a general function that generates samples for a given class in an automatic fashion:</p>
-<div id="77ea3064-9690-4f1a-a264-382d83594bbf" class="cell" data-execution_count="108">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_samples(NAFclass, num_samples, notes <span class="op">=</span> NAFnotes):</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    class_notes <span class="op">=</span> NAFnotes[NAFnotes[<span class="st">'Code'</span>]<span class="op">==</span> NAFclass].iloc[<span class="dv">0</span>]</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1. Generate the prompt</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> class_notes[<span class="st">'Includes'</span>]:</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        prompt <span class="op">=</span> generate_prompt(class_notes[<span class="st">'Title'</span>], class_notes[<span class="st">'Includes'</span>], num_samples)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: <span class="co"># If includes section is empty</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        prompt <span class="op">=</span> generate_prompt(class_notes[<span class="st">'Title'</span>], class_notes[<span class="st">'Title'</span>], num_samples)</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2. Generate samples by calling Groq API</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> client.responses.create(</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>                model<span class="op">=</span><span class="st">"llama-3.3-70b-versatile"</span>,</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>                <span class="bu">input</span><span class="op">=</span>prompt,</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>                )</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    samples <span class="op">=</span> response.output_text.split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame({<span class="st">'text'</span>:samples, <span class="st">'class'</span>:NAFclass})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="77ea3064-9690-4f1a-a264-382d83594bbf" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_samples(NAFclass, num_samples, notes <span class="op">=</span> NAFnotes):</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    class_notes <span class="op">=</span> NAFnotes[NAFnotes[<span class="st">'Code'</span>]<span class="op">==</span> NAFclass].iloc[<span class="dv">0</span>]</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1. Generate the prompt</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> class_notes[<span class="st">'Includes'</span>]:</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>        prompt <span class="op">=</span> generate_prompt(class_notes[<span class="st">'Title'</span>], class_notes[<span class="st">'Includes'</span>], num_samples)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: <span class="co"># If includes section is empty</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>        prompt <span class="op">=</span> generate_prompt(class_notes[<span class="st">'Title'</span>], class_notes[<span class="st">'Title'</span>], num_samples)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2. Generate samples by calling Groq API</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> client.responses.create(</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>                model<span class="op">=</span><span class="st">"llama-3.3-70b-versatile"</span>,</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>                <span class="bu">input</span><span class="op">=</span>prompt,</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    samples <span class="op">=</span> response.output_text.split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame({<span class="st">'text'</span>:samples, <span class="st">'class'</span>:NAFclass})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="bd4455eb-e805-4a46-839d-c059ff0812ee" class="cell" data-execution_count="111">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>NAFclass <span class="op">=</span> <span class="st">'25.11Y'</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>generate_samples(NAFclass, <span class="dv">10</span>, notes <span class="op">=</span> NAFnotes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="111">
+<div id="bd4455eb-e805-4a46-839d-c059ff0812ee" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>NAFclass <span class="op">=</span> <span class="st">'25.11Y'</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>generate_samples(NAFclass, <span class="dv">10</span>, notes <span class="op">=</span> NAFnotes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -604,53 +733,53 @@ Name: count, dtype: int64</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
+<th data-quarto-table-cell-role="th">0</th>
 <td>FABRICATION DE CADRES MÉTALLIQUES POUR CONSTRU...</td>
 <td>25.11Y</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>PRODUCTION DE TOURS ET PYLONES EN TREILLIS EN ...</td>
+<th data-quarto-table-cell-role="th">1</th>
+<td>CONSTRUCTION DE TOURS MÉTALLIQUES À PARTIR DE...</td>
 <td>25.11Y</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>CONSTRUCTION D'ARMATURES MÉTALLIQUES POUR PONT.</td>
+<th data-quarto-table-cell-role="th">2</th>
+<td>PRODUCTION DE PYLÔNES EN TREILLIS EN MÉTAUX</td>
 <td>25.11Y</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>FABRICATION DE MATÉRIEL D'ÉCHAFAUDAGE EN MÉTAL.</td>
+<th data-quarto-table-cell-role="th">3</th>
+<td>FABRICATION DE MATÉRIEL D'ÉCHAFAUDAGE EN MÉTAUX</td>
 <td>25.11Y</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>PRODUCTION D'ÉLÉMENTS DE PONT EN MÉTAL.</td>
+<th data-quarto-table-cell-role="th">4</th>
+<td>PRODUCTION DE COFFRAGE EN MÉTAUX POUR CONSTRU...</td>
 <td>25.11Y</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>FABRICATION DE CADRES MÉTALLIQUES POUR ÉQUIPEM...</td>
+<th data-quarto-table-cell-role="th">5</th>
+<td>CONSTRUCTION DE PONT EN MÉTAUX POUR TRANSPORT</td>
 <td>25.11Y</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>CONSTRUCTION DE BARAQUES DE CHANTIER PRINCIPAL...</td>
+<th data-quarto-table-cell-role="th">6</th>
+<td>FABRICATION DE CADRES MÉTALLIQUES POUR HAUTS ...</td>
 <td>25.11Y</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>FABRICATION D'ÉLÉMENTS MODULAIRES POUR EXPOSIT...</td>
+<th data-quarto-table-cell-role="th">7</th>
+<td>PRODUCTION D'AUTRES STRUCTURES MÉTALLIQUES PO...</td>
 <td>25.11Y</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>PRODUCTION DE COFFRAGE MÉTALLIQUE POUR CONSTRU...</td>
+<th data-quarto-table-cell-role="th">8</th>
+<td>FABRICATION DE BARAQUES DE CHANTIER EN MÉTAUX...</td>
 <td>25.11Y</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>PRODUCTION D'AUTRES STRUCTURES MÉTALLIQUES POU...</td>
+<th data-quarto-table-cell-role="th">9</th>
+<td>CONSTRUCTION D'ÉLÉMENTS MODULAIRES EN MÉTAUX ...</td>
 <td>25.11Y</td>
 </tr>
 </tbody>
@@ -660,32 +789,32 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>Finally, we can generate a function for generating synthetic samples for a given section. The strategy is to generate some examples for each of the classes contained in the section using our previous function, and the put everything together.</p>
-<div id="e54488f1-8500-48b2-b5a4-ba2ba2ec878b" class="cell" data-execution_count="85">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_samples_section(section, num_samples, notes <span class="op">=</span> NAFnotes):</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    samples_df <span class="op">=</span> pd.DataFrame()</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    classes <span class="op">=</span> notes[notes[<span class="st">'Section'</span>] <span class="op">==</span> section][<span class="st">'Code'</span>] <span class="co"># Select classes of the given section from the notes</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    num_classes <span class="op">=</span> <span class="bu">len</span>(classes) <span class="co"># Number of classes in the given section</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># For each class generate samples and concatenate with the samples already generated. </span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># We generate int(num_samples/num_classes)+1 samples for each class in the section,</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># so in total we get approx num_samples for the section.</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> NAFclass <span class="kw">in</span> classes:</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>        samples_df <span class="op">=</span> pd.concat([samples_df, generate_samples(NAFclass, <span class="bu">int</span>(num_samples<span class="op">/</span>num_classes)<span class="op">+</span><span class="dv">1</span>, notes)]) </span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    samples_df[<span class="st">'label'</span>]<span class="op">=</span>section <span class="co"># Add the section as label</span></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> samples_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e54488f1-8500-48b2-b5a4-ba2ba2ec878b" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_samples_section(section, num_samples, notes <span class="op">=</span> NAFnotes):</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    samples_df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    classes <span class="op">=</span> notes[notes[<span class="st">'Section'</span>] <span class="op">==</span> section][<span class="st">'Code'</span>] <span class="co"># Select classes of the given section from the notes</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    num_classes <span class="op">=</span> <span class="bu">len</span>(classes) <span class="co"># Number of classes in the given section</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># For each class generate samples and concatenate with the samples already generated. </span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># We generate int(num_samples/num_classes)+1 samples for each class in the section,</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># so in total we get approx num_samples for the section.</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> NAFclass <span class="kw">in</span> classes:</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>        samples_df <span class="op">=</span> pd.concat([samples_df, generate_samples(NAFclass, <span class="bu">int</span>(num_samples<span class="op">/</span>num_classes)<span class="op">+</span><span class="dv">1</span>, notes)]) </span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    samples_df[<span class="st">'label'</span>]<span class="op">=</span>section <span class="co"># Add the section as label</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> samples_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="f5535b76-77d4-4e2f-8133-4dde74e39841" class="cell" data-execution_count="86">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>samplesT <span class="op">=</span> generate_samples_section(<span class="st">'T'</span>, <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f5535b76-77d4-4e2f-8133-4dde74e39841" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>samplesT <span class="op">=</span> generate_samples_section(<span class="st">'T'</span>, <span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="874d0630-169d-4a3e-aa03-abc719f8e0f8" class="cell" data-execution_count="87">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>samplesT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="87">
+<div id="874d0630-169d-4a3e-aa03-abc719f8e0f8" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>samplesT.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -696,303 +825,33 @@ Name: count, dtype: int64</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>EMPLOI DE PERSONNEL DE NETTOYAGE.</td>
+<th data-quarto-table-cell-role="th">0</th>
+<td>ACTIVITÉS DES MÉNAGES EN TANT QU'EMPLOYEURS DE...</td>
 <td>97.00Y</td>
 <td>T</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>EMPLOI DE CUISINIÈRES.</td>
+<th data-quarto-table-cell-role="th">1</th>
+<td>EMPLOI DE PERSONNEL DE MAISON POUR LES TÂCHES...</td>
 <td>97.00Y</td>
 <td>T</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>GESTION DU PERSONNEL DE MAISON.</td>
+<th data-quarto-table-cell-role="th">2</th>
+<td>GESTION DU PERSONNEL DOMESTIQUE DANS LES MÉNAGES</td>
 <td>97.00Y</td>
 <td>T</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>EMPLOI DE PERSONNEL D'ENTRETIENT DOMESTIQUE.</td>
+<th data-quarto-table-cell-role="th">3</th>
+<td>EMPLOI DE GOUVERNANTES POUR L'ÉDUCATION DES E...</td>
 <td>97.00Y</td>
 <td>T</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>EMPLOI DE GARDIENNES D'ENFANTS.</td>
+<th data-quarto-table-cell-role="th">4</th>
+<td>EMPLOI DE PERSONNEL DE NETTOYAGE POUR LES MÉN...</td>
 <td>97.00Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>EMPLOI DE PERSONNEL DE SERVICE À DOMICILE.</td>
-<td>97.00Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>RECOURS À DES CUISINIERES À DOMICILE.</td>
-<td>97.00Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>EMPLOI DE PERSONNEL DE MAISON POUR L'ENTRETIEN...</td>
-<td>97.00Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>EMPLOI DE PERSONNEL DE NETTOYAGE À DOMICILE.</td>
-<td>97.00Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>EMPLOI DE PERSONNEL DE SOUTIEN À DOMICILE POUR...</td>
-<td>97.00Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>EMPLOI DE PERSONNEL DE SERVICE DOMESTIQUE POUR...</td>
-<td>97.00Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">11</td>
-<td>EMPLOI D'AUTRE PERSONNEL DE SERVICE À DOMICILE.</td>
-<td>97.00Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">12</td>
-<td>EMPLOI DE PERSONNEL DE MAISON POUR LES TÂCHES ...</td>
-<td>97.00Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13</td>
-<td>EMPLOI DE PERSONNEL DE NETTOYAGE POUR LES BURE...</td>
-<td>97.00Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">14</td>
-<td>GESTION DU PERSONNEL DOMESTIQUE POUR LES FAMIL...</td>
-<td>97.00Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">15</td>
-<td>EMPLOI DE PERSONNEL DE SERVICE DOMESTIQUE POUR...</td>
-<td>97.00Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>PRODUCTION DE NOURRITURE PAR CHASSE.</td>
-<td>98.10Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>CULTURE DE LÉGUMES POUR USAGE PROPRE.</td>
-<td>98.10Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>ÉLEVAGE DE POULETS POUR PRODUCTION DE VIANDE.</td>
-<td>98.10Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>FABRICATION D'ABRIS EN BOIS POUR USAGE PROPRE.</td>
-<td>98.10Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>CONFECTION DE VÊTEMENTS EN COTON POUR USAGE FA...</td>
-<td>98.10Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>CUEILLETTE DE FRUITS SAUVAGES POUR CONSOMMATIO...</td>
-<td>98.10Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>PRODUCTION DE LAIT CRU À PARTIR D'ÉLEVAGE DE V...</td>
-<td>98.10Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>CULTURE DE CÉRÉALES POUR PRODUCTION DE FARINE.</td>
-<td>98.10Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>ÉLEVAGE DE LAPINS POUR PRODUCTION DE FOURRURE.</td>
-<td>98.10Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>FABRICATION D'OBJETS EN OSIER POUR USAGE MÉNAG...</td>
-<td>98.10Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>PRODUCTION DE MIEL À PARTIR D'ÉLEVAGE D'ABEILL...</td>
-<td>98.10Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">11</td>
-<td>CULTURE DE PLANTES MÉDICINALES POUR USAGE PROP...</td>
-<td>98.10Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">12</td>
-<td>CONFECTION DE MEUBLES EN BOIS POUR USAGE DOMES...</td>
-<td>98.10Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13</td>
-<td>FABRICATION D'AUTRES PRODUITS ARTISANAUX POUR ...</td>
-<td>98.10Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">14</td>
-<td>CULTURE DE FLEURS ORNEMENTALES POUR DÉCORATION...</td>
-<td>98.10Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">15</td>
-<td>ÉLEVAGE DE POISONS POUR PRODUCTION DE POISSON ...</td>
-<td>98.10Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">16</td>
-<td>FABRICATION DE TISSUS EN LIN POUR CONFECTION D...</td>
-<td>98.10Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">0</td>
-<td>PRODUCTION DE SERVICES DE SUBSISTANCE POUR USA...</td>
-<td>98.20Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">1</td>
-<td>PRODUCTION DE SERVICES DE CUISINE POUR SUBSIST...</td>
-<td>98.20Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">2</td>
-<td>PRODUCTION DE SERVICES D'ENSEIGNEMENT POUR MEM...</td>
-<td>98.20Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">3</td>
-<td>PRESTATION DE SOINS AUX MEMBRES DU MÉNAGE.</td>
-<td>98.20Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">4</td>
-<td>PRODUCTION D'AUTRES SERVICES POUR SUBSISTANCE ...</td>
-<td>98.20Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">5</td>
-<td>PRODUCTION DE SERVICES DE SUBSISTANCE POUR MEM...</td>
-<td>98.20Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">6</td>
-<td>ACTIVITÉS DE PRODUCTION DE SERVICES DE SUBSIST...</td>
-<td>98.20Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">7</td>
-<td>PRODUCTION DE SERVICES POUR SUBSISTANCE DES ME...</td>
-<td>98.20Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">8</td>
-<td>PRODUCTION DE SERVICES DE CUISINE POUR MEMBRES...</td>
-<td>98.20Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">9</td>
-<td>PRODUCTION D'AUTRES SERVICES DE SUBSISTANCE PO...</td>
-<td>98.20Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">10</td>
-<td>PRODUCTION DE SERVICES D'ENSEIGNEMENT POUR SUB...</td>
-<td>98.20Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">11</td>
-<td>PRESTATION DE SOINS POUR MEMBRES DU MÉNAGE EN ...</td>
-<td>98.20Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">12</td>
-<td>PRODUCTION DE SERVICES POUR SUBSISTANCE PROPRE...</td>
-<td>98.20Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">13</td>
-<td>PRODUCTION DE SERVICES DE SUBSISTANCE POUR L'U...</td>
-<td>98.20Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">14</td>
-<td>ACTIVITÉS DE PRODUCTION DE SERVICES POUR SUBSI...</td>
-<td>98.20Y</td>
-<td>T</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">15</td>
-<td>PRODUCTION D'AUTRES SERVICES DE SUBSISTANCE PO...</td>
-<td>98.20Y</td>
-<td>T</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">16</td>
-<td>PRODUCTION DE SERVICES DE SUBSISTANCE POUR L'U...</td>
-<td>98.20Y</td>
 <td>T</td>
 </tr>
 </tbody>
@@ -1001,16 +860,17 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="494c94bc-8e18-4f34-86d1-623280e549a6" class="cell" data-scrolled="true" data-execution_count="59">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>synthetic_df <span class="op">=</span> pd.concat([generate_samples_section(section, <span class="dv">200</span>) <span class="cf">for</span> section <span class="kw">in</span> [<span class="st">'O'</span>,<span class="st">'B'</span>,<span class="st">'U'</span>,<span class="st">'T'</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here we will generate 200 samples for each of the four less represented sections (B, O, T, U). We can do it in the following way:</p>
+<div id="494c94bc-8e18-4f34-86d1-623280e549a6" class="cell" data-scrolled="true" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>synthetic_df <span class="op">=</span> pd.concat([generate_samples_section(section, <span class="dv">200</span>) <span class="cf">for</span> section <span class="kw">in</span> [<span class="st">'O'</span>,<span class="st">'B'</span>,<span class="st">'U'</span>,<span class="st">'T'</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="e7c21dc3-0e66-4b48-89d3-d690952fd1ec" class="cell" data-execution_count="60">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>synthetic_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="60">
+<div id="e7c21dc3-0e66-4b48-89d3-d690952fd1ec" class="cell" data-scrolled="true" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>synthetic_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1021,187 +881,88 @@ Name: count, dtype: int64</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>ADMINISTRATION DE L'EXÉCUTIF CENTRAL.</td>
+<th data-quarto-table-cell-role="th">0</th>
+<td>GESTION DE L'ADMINISTRATION PUBLIQUE CENTRALE</td>
 <td>84.11Y</td>
 <td>O</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>ADMINISTRATION DE L'EXÉCUTIF RÉGIONAL.</td>
+<th data-quarto-table-cell-role="th">1</th>
+<td>ADMINISTRATION DE L'EXECUTIF ET DU LEGISLATIF ...</td>
 <td>84.11Y</td>
 <td>O</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>ADMINISTRATION DE L'EXÉCUTIF LOCAL.</td>
+<th data-quarto-table-cell-role="th">2</th>
+<td>ACTIVITES DES MINISTÈRES NATIONAUX</td>
 <td>84.11Y</td>
 <td>O</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>ACTIVITÉS DES MINISTÈRES AU NIVEAU NATIONAL.</td>
+<th data-quarto-table-cell-role="th">3</th>
+<td>ADMINISTRATION DES AFFAIRES FISCALES LOCALES</td>
 <td>84.11Y</td>
 <td>O</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>ACTIVITÉS DES MINISTÈRES AU NIVEAU RÉGIONAL.</td>
+<th data-quarto-table-cell-role="th">4</th>
+<td>MISE EN ŒUVRE DES RÉGIMES FISCAUX NATIONALS</td>
 <td>84.11Y</td>
 <td>O</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
+<th data-quarto-table-cell-role="th">...</th>
 <td>...</td>
 <td>...</td>
 <td>...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">50</td>
-<td>PRODUCTION DE PRODUITS DE COMMUNICATION POUR L...</td>
+<th data-quarto-table-cell-role="th">73</th>
+<td>PRODUCTION DE SERVICES DE GESTION DES PROCEDUR...</td>
 <td>98.20Y</td>
 <td>T</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">51</td>
-<td>PRODUCTION DE PRODUITS INFORMATIQUES POUR LE M...</td>
+<th data-quarto-table-cell-role="th">74</th>
+<td>REALISATION DE SERVICES DE GESTION DES POLITIQ...</td>
 <td>98.20Y</td>
 <td>T</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">52</td>
-<td>PRODUCTION DE PRODUITS DE RÉSEAUX POUR LA MAISON.</td>
+<th data-quarto-table-cell-role="th">75</th>
+<td>PRODUCTION DE SERVICES DE GESTION DES NORMES P...</td>
 <td>98.20Y</td>
 <td>T</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">53</td>
-<td>PRODUCTION DE PRODUITS POUR LA SÉCURITÉ INFORM...</td>
+<th data-quarto-table-cell-role="th">76</th>
+<td>PRESTATION DE SERVICES DE GESTION DES REGLEMEN...</td>
 <td>98.20Y</td>
 <td>T</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">54</td>
-<td>PRODUCTION D'AUTRES PRODUITS POUR LE MÉNAGE.</td>
+<th data-quarto-table-cell-role="th">77</th>
+<td>PRODUCTION D'AUTRES SERVICES DESTINÉS À LA SUB...</td>
 <td>98.20Y</td>
 <td>T</td>
 </tr>
 </tbody>
 </table>
 
-<p>798 rows × 3 columns</p>
+<p>2462 rows × 3 columns</p>
 </div>
 </div>
 </div>
-<div id="90eae9ac-463e-4e6c-bc8c-1bfb1852d0fa" class="cell" data-execution_count="65">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>synthetic_df <span class="op">=</span> synthetic_df.drop(columns<span class="op">=</span>[<span class="st">'class'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="90eae9ac-463e-4e6c-bc8c-1bfb1852d0fa" class="cell" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>synthetic_df <span class="op">=</span> synthetic_df.drop(columns<span class="op">=</span>[<span class="st">'class'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="3b53cca7-a61a-4460-8706-e51e4dd126d1" class="cell" data-execution_count="66">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>synthetic_df.to_csv(<span class="st">"synthetic_df.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>This strategy consists of taking the titles of the classes of the explanatory notes, remove the stopwords to get the keywords, use an LLM to generate variations or synonims of these keywords, and then obtain new samples by replacing one (or more) keywords by some of their synonims.</p>
-<div id="8dcfdb3b-1976-469e-88e1-7c11f5924eb4" class="cell" data-execution_count="202">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> tokenizer(text):</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>        words <span class="op">=</span> word_tokenize(text)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>        stop_words <span class="op">=</span> <span class="bu">set</span>(stopwords.words(<span class="st">'french'</span>))</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>        stop_words.update(punctuation)</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>        words_list <span class="op">=</span> [word <span class="cf">for</span> word <span class="kw">in</span> words <span class="cf">if</span> word <span class="kw">not</span> <span class="kw">in</span> stop_words]</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">list</span>(<span class="bu">set</span>(words_list))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="0aad4b84-5c9a-4226-ac1e-fa6d596587be" class="cell" data-execution_count="203">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_prompt_dict(root, text):</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    prompt_make_dict <span class="op">=</span> (</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Je crée des phrases d'entraînement pour entraîner de manière supervisée un modèle de classification "</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"des activités économiques sur la base d'un standard. "</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Je dispose d'un titre de classe et d'une description de chaque classe possible du standard. "</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"J'ai besoin que tu me génères un dictionnaire de synonymes afin de constituer un jeu d'entraînement pour cette classe. "</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Une liste de mots et la description de la classe te seront fournies. "</span></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Je veux que tu me renvoies tous les exemples concrets ou synonymes des mots inclus dans la liste qui NE figurent PAS dans le texte. "</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"De plus, ces exemples doivent avoir du sens dans le contexte de la classe afin de ne pas générer de bruit dans le modèle. "</span></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Si tu ne trouves aucun mot pour lequel tu peux donner des exemples, renvoie uniquement le mot NADA. "</span></span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"NE fais dans ta sortie aucune introduction comme 'voici les synonymes générés' ou similaires. "</span></span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Je veux utiliser directement ta sortie, donc je veux UNIQUEMENT les réponses sous forme de dictionnaire en format Python. "</span></span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Voici un exemple : "</span></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Liste de mots : [Élaboration, conserves, poissons]. "</span></span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Texte : Cette classe comprend l’élaboration de conserves de poisson comme : melva, saumon ou sardine. "</span></span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Sortie : "</span></span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"{'poissons': ['thon', 'maquereau', 'espadon', 'anchois'], "</span></span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"'élaboration': ['fabrication', 'manufacture', 'production']} "</span></span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Maintenant, fais-le toi-même. "</span></span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"Liste de mots : </span><span class="sc">{</span>root<span class="sc">}</span><span class="ss">. "</span></span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"Texte : </span><span class="sc">{</span>text<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> prompt_make_dict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="1b1b1353-64b0-4b29-8d11-4fdc7cc4868e" class="cell" data-execution_count="204">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_simple_sentences(text, word_dict, key_list):</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>        final_list <span class="op">=</span> [text]</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> key <span class="kw">in</span> key_list:</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>            text_list <span class="op">=</span> [text.replace(key, word) <span class="cf">for</span> word <span class="kw">in</span> word_dict[key]]</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>            final_list.extend(text_list)</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> final_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="57a7e0a7-a6f9-4a6c-aedd-3649b9934d07" class="cell" data-execution_count="208">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>root <span class="op">=</span> <span class="st">"Extraction de gaz naturel"</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"""Cette sous-classe comprend :</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="st">        - la production d’hydrocarbures gazeux bruts (gaz naturel)</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="st">        - l’extraction de condensats</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="st">        - la décantation et la séparation de fractions d’hydrocarbures liquides</span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="st">        - la désulfuration du gaz</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="st">        - l’extraction de méthane provenant des mines de charbon</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="st">        """</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="b852dba7-d4b1-4495-939c-b2855ca17b0a" class="cell" data-execution_count="210">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>key_list <span class="op">=</span> tokenizer(root)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>key_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="210">
-<pre><code>['naturel', 'gaz', 'Extraction']</code></pre>
-</div>
-</div>
-<div id="5da13205-5a5e-43fc-9346-ac59e38f83f1" class="cell" data-execution_count="214">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>prompt <span class="op">=</span> generate_prompt_dict(key_list, text)</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>prompt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="214">
-<pre><code>"Je crée des phrases d'entraînement pour entraîner de manière supervisée un modèle de classification des activités économiques sur la base d'un standard. Je dispose d'un titre de classe et d'une description de chaque classe possible du standard. J'ai besoin que tu me génères un dictionnaire de synonymes afin de constituer un jeu d'entraînement pour cette classe. Une liste de mots et la description de la classe te seront fournies. Je veux que tu me renvoies tous les exemples concrets ou synonymes des mots inclus dans la liste qui NE figurent PAS dans le texte. De plus, ces exemples doivent avoir du sens dans le contexte de la classe afin de ne pas générer de bruit dans le modèle. Si tu ne trouves aucun mot pour lequel tu peux donner des exemples, renvoie uniquement le mot NADA. NE fais dans ta sortie aucune introduction comme 'voici les synonymes générés' ou similaires. Je veux utiliser directement ta sortie, donc je veux UNIQUEMENT les réponses sous forme de dictionnaire en format Python. Voici un exemple : Liste de mots : [Élaboration, conserves, poissons]. Texte : Cette classe comprend l’élaboration de conserves de poisson comme : melva, saumon ou sardine. Sortie : {'poissons': ['thon', 'maquereau', 'espadon', 'anchois'], 'élaboration': ['fabrication', 'manufacture', 'production']} Maintenant, fais-le toi-même. Liste de mots : ['naturel', 'gaz', 'Extraction']. Texte : Cette sous-classe comprend :\n        - la production d’hydrocarbures gazeux bruts (gaz naturel)\n        - l’extraction de condensats\n        - la décantation et la séparation de fractions d’hydrocarbures liquides\n        - la désulfuration du gaz\n        - l’extraction de méthane provenant des mines de charbon\n        "</code></pre>
-</div>
-</div>
-<div id="3170e607-032e-49dc-98a2-f9d1e7c1dbad" class="cell" data-execution_count="215">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Groq call</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> client.responses.create(</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"llama-3.3-70b-versatile"</span>,</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">input</span><span class="op">=</span>prompt,</span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="ff4bb23e-7981-4448-8860-41053afda0f4" class="cell" data-execution_count="216">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>word_dict <span class="op">=</span> <span class="bu">eval</span>(response.output_text)</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>word_dict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="216">
-<pre><code>{'naturel': ['biologique', 'organique', 'écologique'],
- 'gaz': ['méthane', 'butane', 'propane', 'éthane'],
- 'Extraction': ['récupération', 'exploitation', 'production', 'capture']}</code></pre>
-</div>
-</div>
-<div id="53601bbf-c112-4f1c-a361-8d0099fdad83" class="cell" data-execution_count="217">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>generate_simple_sentences(root, word_dict, key_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="217">
-<pre><code>['Extraction de gaz naturel',
- 'Extraction de gaz biologique',
- 'Extraction de gaz organique',
- 'Extraction de gaz écologique',
- 'Extraction de méthane naturel',
- 'Extraction de butane naturel',
- 'Extraction de propane naturel',
- 'Extraction de éthane naturel',
- 'récupération de gaz naturel',
- 'exploitation de gaz naturel',
- 'production de gaz naturel',
- 'capture de gaz naturel']</code></pre>
-</div>
+<div id="3b53cca7-a61a-4460-8706-e51e4dd126d1" class="cell" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>synthetic_df.to_csv(<span class="st">"synthetic_df.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="some-ideas-for-further-improvement" class="level3">
 <h3 class="anchored" data-anchor-id="some-ideas-for-further-improvement">3.3 Some ideas for further improvement</h3>
-<p>We have seen an example of a basic generation strategy. However, there is plenty of research to be done in this direction, and there are lots of experiments one can perform. Here we just give some ideas or suggestions that one could try: - Prompt engineering. Try different prompt structures or variations. Try giving as examples real-world samples from the class we want to generate samples instead of using the same generic example for all classes. - Improve diversity of samples by asking an LLM to generate it in different styles (longer, shorter, with ortographical errors, etc). - Improve further the diversity by asking several distinct LLMs to produce samples. - Use not just the “Includes” section of the explanatory notes, but also the “Also includes” and the “Not included” section. - Exploit the hierarchical structure of the classification in the prompt, giving not only information about the class but also the higher groups. - Data curation: improve the quality of the generated samples by including a process of filtering (by humans or by another LLM)</p>
+<p>We have seen an example of a basic generation strategy. However, there is plenty of research to be done in this direction, and there are lots of experiments one can perform. Here we just give some ideas or suggestions that one could try: - Prompt engineering. Try different prompt structures or variations. Try giving examples for each class instead of using the same generic example for all classes. - Improve diversity of samples by asking an LLM to generate it in different styles (longer, shorter, with ortographical errors, etc). - Improve further the diversity by asking several distinct LLMs to produce samples. - Use not just the “Includes” section of the explanatory notes, but also the “Also includes” and the “Not included” section. - Exploit the hierarchical structure of the classification in the prompt, giving not only information about the class but also the higher groups. - Data curation: improve the quality of the generated samples by including a process of filtering (by humans or by another LLM). - Evaluation of the synthetic dataset: both direct (measuring the quality of the data generated) and indirect (evaluation of the classifiers trained/fine-tuned with the synthetic data).</p>
 
 
 </section>
@@ -1259,13 +1020,14 @@ Name: count, dtype: int64</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
