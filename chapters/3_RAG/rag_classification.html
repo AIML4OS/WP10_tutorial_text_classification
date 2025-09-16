@@ -354,7 +354,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="phase-3---final-llm-classification">Phase 3 - Final LLM Classification</h2>
 <p>This final stage comprises a generative large language model to pick an option between the retrieved candidate codes. First, we load the LLM via the Hugging Face <code>pipeline</code> wrapper.</p>
 <div id="cell-28" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>LLM_ID: <span class="bu">str</span> <span class="op">=</span> <span class="st">"meta-llama/Llama-3.2-3B-Instruct"</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>LLM_ID: <span class="bu">str</span> <span class="op">=</span> <span class="st">"unsloth/Llama-3.2-3B-Instruct"</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>pipe <span class="op">=</span> pipeline(</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"text-generation"</span>,</span>
