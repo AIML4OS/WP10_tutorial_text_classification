@@ -1,15 +1,5 @@
 [
   {
-    "objectID": "chapters/3_RAG/rag_classification.html",
-    "href": "chapters/3_RAG/rag_classification.html",
-    "title": "Chapter 5. RAG Pipeline for Automatic Text Classification",
-    "section": "",
-    "text": "In this chapter, we will explore an alternative approach to text classification building a simple retrieval-augmented generation (RAG) system. This chapter will cover: * Building a knowledge base using official NACE category descriptions. * Retrieving the top_k relevant categories based on a natural language query. * Using a large language model (LLM) to make the final classification.\nimport pandas as pd\nimport torch\nfrom sentence_transformers import SentenceTransformer\nfrom transformers import pipeline",
-    "crumbs": [
-      "RAG Classification"
-    ]
-  },
-  {
     "objectID": "chapters/3_RAG/rag_classification.html#phase-1---knowledge-base-creation",
     "href": "chapters/3_RAG/rag_classification.html#phase-1---knowledge-base-creation",
     "title": "Chapter 5. RAG Pipeline for Automatic Text Classification",
@@ -47,16 +37,6 @@
     "text": "Interactive Demo\nFinally, we can create a small interactive demo for our RAG system. First, we need to create a rag function to perform the whole pipeline.\n\ndef rag(\n    query: str,\n    embeddings: torch.Tensor,\n    embedding_model: SentenceTransformer,\n    llm: pipeline,\n    system_prompt: str,\n    prompt_template: str,\n    nace_df: pd.DataFrame,\n    top_k: int = 5\n):\n\n    top_results = search_base(query, embeddings, embedding_model, top_k=5)\n\n    candidates_list = []\n    for i, sim in zip(top_results.indices, top_results.values):\n        code = nace_df.iloc[int(i)][\"ID\"]\n        title = nace_df.iloc[int(i)][\"NAME\"]\n        candidates_list.append(f\"{code} - {title}\")\n\n    candidates = \"\\n\".join(candidates_list)\n\n    parsed_prompt = PROMPT_TEMPLATE.format(query=query, candidates=candidates)\n\n    messages = [\n        {\"role\": \"system\", \"content\": system_prompt},\n        {\"role\": \"user\", \"content\": parsed_prompt},\n    ]\n\n    outputs = pipe(\n        messages,\n        max_new_tokens=16,\n        pad_token_id=pipe.tokenizer.eos_token_id\n    )\n\n    return outputs[0][\"generated_text\"][-1][\"content\"]\n\nNow we can run the demo.\n\nquery = input(\"Entry a query ('EXIT' to stop): \")\n\nwhile query != \"EXIT\":\n    output = rag(query, embeddings, model, pipe, SYSTEM_PROMPT, PROMPT_TEMPLATE, nace_division_df)\n    print(f\"RESULT: {output}\")\n    print(\"\")\n    query = input(\"Entry a query ('EXIT' to stop): \")",
     "crumbs": [
       "RAG Classification"
-    ]
-  },
-  {
-    "objectID": "chapters/1_DataAugmentation/data_augmentation.html",
-    "href": "chapters/1_DataAugmentation/data_augmentation.html",
-    "title": "LLM-based synthetic data generation",
-    "section": "",
-    "text": "The goal of this notebook is to explain how to use LLMs for synthetic data generation, especially in the context of statistical classifications. This is an important step towards training a classifier, since it helps to mitigate some problems with real-world data like scarcity, mislabelling and data gaps. Moreover, as we will see, this strategy allows us to significantly improve the performance of classifiers using few resources. An implementation of a full pipeline, together with documentation and a jupyter notebook tutorial, can be seen in https://github.com/AIML4OS/WP10_Cluster1_StatCodGen#\n# Install required libraries for Onyxia environment\n\n#!pip install openai\n#!pip install openpyxl\n#!pip install matplotlib\nimport pandas as pd\nimport openai #for LLMs calls",
-    "crumbs": [
-      "Data augmentation"
     ]
   },
   {

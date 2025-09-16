@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Chapter 5. RAG Pipeline for Automatic Text Classification – Educational resource template for Python</title>
+<title>rag_classification – Educational resource template for Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -212,7 +212,9 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#phase-1---knowledge-base-creation" id="toc-phase-1---knowledge-base-creation" class="nav-link active" data-scroll-target="#phase-1---knowledge-base-creation">Phase 1 - Knowledge Base Creation</a>
+  <li><a href="#chapter-5.-rag-pipeline-for-automatic-text-classification" id="toc-chapter-5.-rag-pipeline-for-automatic-text-classification" class="nav-link active" data-scroll-target="#chapter-5.-rag-pipeline-for-automatic-text-classification">Chapter 5. <strong>RAG Pipeline for Automatic Text Classification</strong></a>
+  <ul class="collapse">
+  <li><a href="#phase-1---knowledge-base-creation" id="toc-phase-1---knowledge-base-creation" class="nav-link" data-scroll-target="#phase-1---knowledge-base-creation">Phase 1 - Knowledge Base Creation</a>
   <ul class="collapse">
   <li><a href="#defining-and-structuring-documents" id="toc-defining-and-structuring-documents" class="nav-link" data-scroll-target="#defining-and-structuring-documents">Defining and structuring documents</a></li>
   <li><a href="#embed-the-descriptors" id="toc-embed-the-descriptors" class="nav-link" data-scroll-target="#embed-the-descriptors">Embed the descriptors</a></li>
@@ -225,31 +227,19 @@ window.Quarto = {
   <li><a href="#full-rag-system" id="toc-full-rag-system" class="nav-link" data-scroll-target="#full-rag-system">Full RAG System</a></li>
   </ul></li>
   <li><a href="#interactive-demo" id="toc-interactive-demo" class="nav-link" data-scroll-target="#interactive-demo">Interactive Demo</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.dev/AIML4OS/WP10_tutorial_text_classification/blob/main/chapters/3_RAG/rag_classification.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/AIML4OS/WP10_tutorial_text_classification/blob/main/chapters/3_RAG/rag_classification.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/AIML4OS/WP10_tutorial_text_classification/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Chapter 5. <strong>RAG Pipeline for Automatic Text Classification</strong></h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<p><a href="https://datalab.sspcloud.fr/launcher/ide/jupyter-pytorch-gpu?name=WP10-tutorial-RAG&amp;version=2.3.19&amp;s3=region-79669f20&amp;init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FAIML4OS%2FWP10_tutorial_text_classification%2Frefs%2Fheads%2Fmain%2Fsspcloud%2F3_RAG%2Finit-trainees-RAG.sh»&amp;autoLaunch=true" target="_blank" rel="noopener" data-original-href="https://datalab.sspcloud.fr/launcher/ide/jupyter-pytorch-gpu?name=WP10-tutorial-RAG&amp;version=2.3.19&amp;s3=region-79669f20&amp;init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FAIML4OS%2FWP10_tutorial_text_classification%2Frefs%2Fheads%2Fmain%2Fsspcloud%2F3_RAG%2Finit-trainees-RAG.sh»&amp;autoLaunch=true"><img src="https://custom-icon-badges.demolab.com/badge/SSP%20Cloud-Launch_this_turorial_with_GPU_supported_JupyterLab-blue?logo=jupyter&amp;logoColor=white" alt="Onyxia"></a></p>
+<section id="chapter-5.-rag-pipeline-for-automatic-text-classification" class="level1">
+<h1>Chapter 5. <strong>RAG Pipeline for Automatic Text Classification</strong></h1>
 <p>In this chapter, we will explore an alternative approach to text classification building a simple retrieval-augmented generation (RAG) system. This chapter will cover: * Building a <strong>knowledge base</strong> using official NACE category descriptions. * <strong>Retrieving</strong> the <code>top_k</code> relevant categories based on a <strong>natural language query</strong>. * Using a <strong>large language model</strong> (LLM) to make the final classification.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -472,6 +462,7 @@ window.Quarto = {
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

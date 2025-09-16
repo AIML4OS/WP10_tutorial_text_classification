@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>LLM-based synthetic data generation – Educational resource template for Python</title>
+<title>data_augmentation – Educational resource template for Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -187,7 +187,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-do-we-need-synthetic-data" id="toc-why-do-we-need-synthetic-data" class="nav-link active" data-scroll-target="#why-do-we-need-synthetic-data">1. Why do we need synthetic data?</a></li>
+  <li><a href="#llm-based-synthetic-data-generation" id="toc-llm-based-synthetic-data-generation" class="nav-link active" data-scroll-target="#llm-based-synthetic-data-generation">LLM-based synthetic data generation</a>
+  <ul class="collapse">
+  <li><a href="#why-do-we-need-synthetic-data" id="toc-why-do-we-need-synthetic-data" class="nav-link" data-scroll-target="#why-do-we-need-synthetic-data">1. Why do we need synthetic data?</a></li>
   <li><a href="#reading-the-data" id="toc-reading-the-data" class="nav-link" data-scroll-target="#reading-the-data">2. Reading the data</a>
   <ul class="collapse">
   <li><a href="#sample-data" id="toc-sample-data" class="nav-link" data-scroll-target="#sample-data">2.1 Sample data</a></li>
@@ -199,31 +201,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#data-generation-from-the-explanatory-notes" id="toc-data-generation-from-the-explanatory-notes" class="nav-link" data-scroll-target="#data-generation-from-the-explanatory-notes">3.2 Data generation from the explanatory notes</a></li>
   <li><a href="#some-ideas-for-further-improvement" id="toc-some-ideas-for-further-improvement" class="nav-link" data-scroll-target="#some-ideas-for-further-improvement">3.3 Some ideas for further improvement</a></li>
   </ul></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.dev/AIML4OS/WP10_tutorial_text_classification/blob/main/chapters/1_DataAugmentation/data_augmentation.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/AIML4OS/WP10_tutorial_text_classification/blob/main/chapters/1_DataAugmentation/data_augmentation.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/AIML4OS/WP10_tutorial_text_classification/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">LLM-based synthetic data generation</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<p><a href="https://datalab.sspcloud.fr/launcher/ide/jupyter-pytorch?name=WP10-tutorial-data-augmentation&amp;version=2.3.19&amp;s3=region-79669f20&amp;init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FAIML4OS%2FWP10_tutorial_text_classification%2Frefs%2Fheads%2Fmain%2Fsspcloud%2F1_DataAugmentation%2Finit-trainees-DA.sh»&amp;autoLaunch=true" target="_blank" rel="noopener" data-original-href="https://datalab.sspcloud.fr/launcher/ide/jupyter-pytorch?name=WP10-tutorial-data-augmentation&amp;version=2.3.19&amp;s3=region-79669f20&amp;init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FAIML4OS%2FWP10_tutorial_text_classification%2Frefs%2Fheads%2Fmain%2Fsspcloud%2F1_DataAugmentation%2Finit-trainees-DA.sh»&amp;autoLaunch=true"><img src="https://custom-icon-badges.demolab.com/badge/SSP%20Cloud-Launch_this_turorial_with_JupyterLab-blue?logo=jupyter&amp;logoColor=white" alt="Onyxia"></a></p>
+<section id="llm-based-synthetic-data-generation" class="level1">
+<h1>LLM-based synthetic data generation</h1>
 <p>The goal of this notebook is to explain how to use LLMs for synthetic data generation, especially in the context of statistical classifications. This is an important step towards training a classifier, since it helps to mitigate some problems with real-world data like scarcity, mislabelling and data gaps. Moreover, as we will see, this strategy allows us to significantly improve the performance of classifiers using few resources. An implementation of a full pipeline, together with documentation and a jupyter notebook tutorial, can be seen in https://github.com/AIML4OS/WP10_Cluster1_StatCodGen#</p>
 <div id="2c70db35-5006-46be-a5ca-a770ca4fe297" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install required libraries for Onyxia environment</span></span>
@@ -969,6 +959,7 @@ Name: count, dtype: int64</code></pre>
 <p>We have seen an example of a basic generation strategy. However, there is plenty of research to be done in this direction, and there are lots of experiments one can perform. Here we just give some ideas or suggestions that one could try: - Prompt engineering. Try different prompt structures or variations. Try giving examples for each class instead of using the same generic example for all classes. - Improve diversity of samples by asking an LLM to generate it in different styles (longer, shorter, with ortographical errors, etc). - Improve further the diversity by asking several distinct LLMs to produce samples. - Use not just the “Includes” section of the explanatory notes, but also the “Also includes” and the “Not included” section. - Exploit the hierarchical structure of the classification in the prompt, giving not only information about the class but also the higher groups. - Data curation: improve the quality of the generated samples by including a process of filtering (by humans or by another LLM). - Evaluation of the synthetic dataset: both direct (measuring the quality of the data generated) and indirect (evaluation of the classifiers trained/fine-tuned with the synthetic data).</p>
 
 
+</section>
 </section>
 </section>
 
