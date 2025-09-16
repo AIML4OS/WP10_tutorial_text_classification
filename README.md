@@ -7,7 +7,6 @@ This repository uses a clean and modular template to build tutorials for project
 
 ## Launch tutorials with SSPcloud
 
-SSP Cloud launch button will be enabled **after** the tutorial session!!
 
 ### Chapter 1: Data augmentation
 
