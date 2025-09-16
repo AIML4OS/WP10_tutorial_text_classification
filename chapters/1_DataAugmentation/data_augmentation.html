@@ -226,7 +226,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>The goal of this notebook is to explain how to use LLMs for synthetic data generation, especially in the context of statistical classifications. This is an important step towards training a classifier, since it helps to mitigate some problems with real-world data like scarcity, mislabelling and data gaps. Moreover, as we will see, this strategy allows us to significantly improve the performance of classifiers using few resources. An implementation of a full pipeline, together with documentation and a jupyter notebook tutorial, can be seen in https://github.com/AIML4OS/WP10_Cluster1_StatCodGen#</p>
 <div id="2c70db35-5006-46be-a5ca-a770ca4fe297" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install openai</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install required libraries for Onyxia environment</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install openai</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install openpyxl</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install matplotlib</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="3ba9b6fb-2143-493b-a604-2c61541d0f56" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>

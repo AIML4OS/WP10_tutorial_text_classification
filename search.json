@@ -54,7 +54,7 @@
     "href": "chapters/1_DataAugmentation/data_augmentation.html",
     "title": "LLM-based synthetic data generation",
     "section": "",
-    "text": "The goal of this notebook is to explain how to use LLMs for synthetic data generation, especially in the context of statistical classifications. This is an important step towards training a classifier, since it helps to mitigate some problems with real-world data like scarcity, mislabelling and data gaps. Moreover, as we will see, this strategy allows us to significantly improve the performance of classifiers using few resources. An implementation of a full pipeline, together with documentation and a jupyter notebook tutorial, can be seen in https://github.com/AIML4OS/WP10_Cluster1_StatCodGen#\n#!pip install openai\nimport pandas as pd\nimport openai #for LLMs calls",
+    "text": "The goal of this notebook is to explain how to use LLMs for synthetic data generation, especially in the context of statistical classifications. This is an important step towards training a classifier, since it helps to mitigate some problems with real-world data like scarcity, mislabelling and data gaps. Moreover, as we will see, this strategy allows us to significantly improve the performance of classifiers using few resources. An implementation of a full pipeline, together with documentation and a jupyter notebook tutorial, can be seen in https://github.com/AIML4OS/WP10_Cluster1_StatCodGen#\n# Install required libraries for Onyxia environment\n\n#!pip install openai\n#!pip install openpyxl\n#!pip install matplotlib\nimport pandas as pd\nimport openai #for LLMs calls",
     "crumbs": [
       "Data augmentation"
     ]
