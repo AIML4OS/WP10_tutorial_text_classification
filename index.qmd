@@ -141,7 +141,7 @@ This template is a Quarto Website customized for the AIML4OS project, designed t
 
 # How to use it?
 
-See [this tutorial](https://inseefrlab.github.io/formation-starting-pack/).
+See [this tutorial](https://aiml4os.github.io/training-material-starting-pack/).
 
 
 
