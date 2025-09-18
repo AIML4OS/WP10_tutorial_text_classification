@@ -592,7 +592,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong><code>.to(device)</code></strong>: Moves the model’s weights to the chosen hardware (CPU or GPU) for faster computation.</li>
 </ul>
 <p><strong>Interaction with Hugging Face Hub</strong><br>
-When called for the first time with a given <code>model_id</code>, Hugging Face will: 1. <strong>Check the local cache</strong> (default: <code>~/.cache/huggingface/transformers</code> or path from <code>HF_HOME</code> env variable). 2. If not found locally, <strong>download the model weights and configuration</strong> from the Hugging Face Hub. 3. Save them in the cache for future runs, avoiding repeated downloads.</p>
+When called for the first time with a given <code>model_id</code>, Hugging Face will: 1. <strong>Check the local cache</strong> (default: <code>~/.cache/huggingface/hub</code> or path from <code>HF_HOME</code> env variable). 2. If not found locally, <strong>download the model weights and configuration</strong> from the Hugging Face Hub. 3. Save them in the cache for future runs, avoiding repeated downloads.</p>
 <hr>
 </section>
 <section id="loading-the-tokenizer" class="level2">
